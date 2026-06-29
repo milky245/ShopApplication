@@ -1,0 +1,13 @@
+/backport-util-concurrent/
+/ch/
+/com/
+/commons-codec/
+/commons-io/
+/commons-logging/
+/io/
+/jakarta/
+/javax/
+/junit/
+/net/
+/org/
+/tools/

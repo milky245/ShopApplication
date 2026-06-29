@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="#{item}+#{title.detail}+' | '+ #{shop.title}"> </title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user">
+
+	<h2 th:class="title" th:text="#{item}+#{title.detail}"></h2>
+
+	<div class="info_form_area" th:object="${item}">
+		<div class="item_detail_area">
+			<div class="item_image_area">
+				<img th:if="*{image != null}" th:src="@{/images/{image}(image=*{image})}"></img>
+				<img th:if="*{image == null}" th:src="@{/images/common/no_image.jpg}"></img>
+			</div>
+			<dl class="item_detail_list">
+				<dt>[[#{data.item.name}]]</dt>
+				<dd th:text="*{name}"></dd>
+				<dt>[[#{data.item.price}]]</dt>
+				<dd th:text="*{price}"></dd>
+				<dt>[[#{data.item.stock}]]</dt>
+				<dd th:if="*{stock > 5}" th:text="#{data.in.stock}"></dd>
+				<dd th:if="*{stock >= 1 and 5 >= stock }" th:text="*{stock}"></dd>
+				<dd th:if="*{stock == 0}" th:text="#{data.out.of.stock}"></dd>
+				<dt>[[#{data.category}]]</dt>
+				<dd th:text="*{categoryName}"></dd>
+				<dt>[[#{data.description}]]</dt>
+				<dd th:text="*{description}"></dd>
+			</dl>
+		</div>
+		<div class="detail_button_area">
+			<th:block th:if="${session.user != null and session.user.authority == 2}">
+				<form th:if="${!isFavorite}" th:action="@{/client/favorite/regist/{itemId}(itemId=*{id})}" method="post" class="user_info_form">
+					<input type="submit" value="お気に入り登録" class="send_button" />
+				</form>
+				<form th:if="${isFavorite}" th:action="@{/client/favorite/delete/{itemId}(itemId=*{id})}" method="post" class="user_info_form">
+					<input type="submit" value="お気に入り解除" class="send_button" />
+				</form>
+			</th:block>
+			<form th:action="@{/client/basket/add}" method="post" class="user_info_form" th:if="*{stock > 0}">
+				<input type="hidden" th:field="*{id}" />
+				<input type="submit" value="買い物かごに入れる" class="send_button" />
+			</form>
+			<form th:action="@{/client/item/list/1}" method="post">
+				<input type="submit" value="戻る" class="back_button" />
+			</form>
+		</div>
+
+		<hr />
+
+		<div class="review_area">
+			<h3 class="title">カスタマーレビュー</h3>
+			<div class="review_sort_area">
+				並び替え：
+				<span th:if="${reviewSortType == 1}">新着順</span>
+				<a th:if="${reviewSortType != 1}" th:href="@{/client/item/detail/{id}(id=*{id}, reviewSortType=1)}">新着順</a>
+				|
+				<span th:if="${reviewSortType == 2}">高評価順</span>
+				<a th:if="${reviewSortType != 2}" th:href="@{/client/item/detail/{id}(id=*{id}, reviewSortType=2)}">高評価順</a>
+				|
+				<span th:if="${reviewSortType == 3}">低評価順</span>
+				<a th:if="${reviewSortType != 3}" th:href="@{/client/item/detail/{id}(id=*{id}, reviewSortType=3)}">低評価順</a>
+			</div>
+
+			<div th:if="${#lists.isEmpty(reviews)}">
+				<p>この商品へのレビューはまだありません。</p>
+			</div>
+
+			<div th:if="${!#lists.isEmpty(reviews)}" th:each="review : ${reviews}" class="review_item">
+				<div class="review_header">
+					<span class="review_rating" th:text="${'★' + review.rating}"></span>
+					<span class="review_user" th:text="${review.userName}"></span>
+					<span class="review_date" th:text="${#strings.substring(review.insertDate, 0, 10)}"></span>
+				</div>
+				<div class="review_comment">
+					<p th:text="${review.reviewComment}"></p>
+				</div>
+				<div class="review_action" th:if="${session.user != null and (session.user.id == review.userId or session.user.authority == T(jp.co.sss.shop.util.Constant).AUTH_ADMIN)}">
+					<form th:action="@{/client/review/delete/{id}(id=${review.id})}" method="post">
+						<input type="submit" value="削除" class="delete_button" onclick="return confirm('レビューを削除しますか？')" />
+					</form>
+				</div>
+				<hr />
+			</div>
+		</div>
+	</div>
+
+	<section class="related_items"
+		th:if="${relatedItems != null and !#lists.isEmpty(relatedItems)}">
+		<h3 class="related_items_title" th:text="#{title.related.items}"></h3>
+		<div class="related_item_list product_card_list">
+			<article class="related_item product_card" th:each="relatedItem : ${relatedItems}">
+				<a class="product_card_link" th:href="@{/client/item/detail/{id}(id=${relatedItem.id})}">
+					<span class="product_card_image">
+						<img th:if="${relatedItem.image != null and !#strings.isEmpty(relatedItem.image)}"
+							th:src="@{/images/{image}(image=${relatedItem.image})}"
+							th:alt="${relatedItem.name}">
+						<img th:if="${relatedItem.image == null or #strings.isEmpty(relatedItem.image)}"
+							th:src="@{/images/common/no_image.jpg}"
+							th:alt="${relatedItem.name}">
+					</span>
+					<span class="product_card_body">
+						<span class="related_item_name product_card_name" th:text="${relatedItem.name}"></span>
+						<span class="item_review product_card_review">
+							<th:block th:if="${relatedItem.reviewCount > 0}">
+								<span class="star_rating">★</span>
+								<span class="rating_value" th:text="${#numbers.formatDecimal(relatedItem.avgRating, 1, 1)}"></span>
+								<span class="review_count" th:text="'(' + ${relatedItem.reviewCount} + ')'"></span>
+							</th:block>
+							<th:block th:unless="${relatedItem.reviewCount > 0}">
+								<span class="no_review">評価なし</span>
+							</th:block>
+						</span>
+						<span class="related_item_price product_card_price" th:text="'¥' + ${#numbers.formatDecimal(relatedItem.price, 1, 'COMMA', 0, 'POINT')}"></span>
+					</span>
+				</a>
+			</article>
+		</div>
+	</section>
+	<!-- 最近見た商品 -->
+	<section class="recently_viewed_items" th:if="${recentlyViewedItems != null and not #lists.isEmpty(recentlyViewedItems)}">
+		<h2 class="title">最近見た商品</h2>
+		<div class="item_list product_card_list">
+			<article class="item product_card" th:each="rvItem : ${recentlyViewedItems}">
+				<a class="product_card_link" th:href="@{/client/item/detail/{id}(id=${rvItem.id})}">
+					<span class="product_card_image">
+						<img th:if="${rvItem.image != null}" th:src="@{/images/{image}(image=${rvItem.image})}" th:alt="${rvItem.name}" />
+						<img th:if="${rvItem.image == null}" th:src="@{/images/common/no_image.jpg}" th:alt="${rvItem.name}" />
+					</span>
+					<span class="product_card_body">
+						<span class="item_name product_card_name" th:text="${rvItem.name}"></span>
+						<span class="item_review product_card_review">
+							<th:block th:if="${rvItem.reviewCount > 0}">
+								<span class="star_rating">★</span>
+								<span class="rating_value" th:text="${#numbers.formatDecimal(rvItem.avgRating, 1, 1)}"></span>
+								<span class="review_count" th:text="'(' + ${rvItem.reviewCount} + ')'"></span>
+							</th:block>
+							<th:block th:unless="${rvItem.reviewCount > 0}">
+								<span class="no_review">評価なし</span>
+							</th:block>
+						</span>
+						<span class="item_price product_card_price" th:text="'¥' + ${#numbers.formatDecimal(rvItem.price, 1, 'COMMA', 0, 'POINT')}"></span>
+					</span>
+				</a>
+			</article>
+		</div>
+	</section>
+
+</body>
+
+</html>

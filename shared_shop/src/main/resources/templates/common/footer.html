@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<div class="container">
+<small th:fragment="layout-footer" class="copyright">
+	<!--/* small要素は免責・著作権・ライセンス要件などを表す際に使用します。 */-->
+	Copyright(C) System Shared co., ltd, ALL Rights Reserved
+	<script>
+	(function () {
+		"use strict";
+		function createAmbient(body) {
+			var ambient = document.createElement("div");
+			ambient.className = "witch-ambient";
+			ambient.setAttribute("aria-hidden", "true");
+			var marks = ["\u2726", "\u2727", "\u2767", "\u25c7", "\u273a", "\u2748", "\u2727", "\u2766", "\u2217", "\u2735"];
+			for (var i = 0; i < marks.length; i++) {
+				var mark = document.createElement("span");
+				mark.textContent = marks[i];
+				mark.style.setProperty("--i", i);
+				ambient.appendChild(mark);
+			}
+			body.appendChild(ambient);
+		}
+		function lightSegment(segments, index, finalClass) {
+			for (var i = 0; i < segments.length; i++) {
+				segments[i].classList.remove("is-lit", "is-final");
+			}
+			if (segments[index]) {
+				segments[index].classList.add(finalClass || "is-lit");
+			}
+		}
+		function resolveGachaIndex(segments, message, type) {
+			var normalizedMessage = message || "";
+			if (type === "miss" || normalizedMessage.indexOf("はずれ") > -1) {
+				return Array.prototype.findIndex.call(segments, function (segment) {
+					return segment.getAttribute("data-result") === "miss";
+				});
+			}
+			var rates = ["15", "10", "5"];
+			for (var i = 0; i < rates.length; i++) {
+				if (normalizedMessage.indexOf(rates[i]) > -1) {
+					return Array.prototype.findIndex.call(segments, function (segment) {
+						return segment.getAttribute("data-result") === rates[i];
+					});
+				}
+			}
+			return type === "win" ? 2 : 0;
+		}
+		function openGachaModal(modal, source) {
+			if (!modal || !source) {
+				return;
+			}
+			var message = source.getAttribute("data-message") || source.textContent || "";
+			var type = source.getAttribute("data-type") || "";
+			var messageNode = modal.querySelector("[data-gacha-modal-message]");
+			var dialog = modal.querySelector(".gacha_result_dialog");
+			if (messageNode) {
+				messageNode.textContent = message;
+			}
+			if (dialog) {
+				dialog.classList.remove("win", "miss", "limit", "info");
+				if (type) {
+					dialog.classList.add(type);
+				}
+			}
+			modal.classList.add("is-open");
+			modal.setAttribute("aria-hidden", "false");
+			var closeButton = modal.querySelector("[data-gacha-close]");
+			if (closeButton && closeButton.focus) {
+				closeButton.focus();
+			}
+		}
+		function initGacha(reduceMotion) {
+			var wheel = document.querySelector("[data-gacha-wheel]");
+			var segments = wheel ? wheel.querySelectorAll(".gacha_segment") : [];
+			var form = document.querySelector(".coupon_gacha_page .gacha_status form");
+			var button = form ? form.querySelector(".gacha_button") : null;
+			var source = document.querySelector(".gacha_result_source");
+			var modal = document.querySelector("[data-gacha-modal]");
+			if (!wheel || !segments.length) {
+				return;
+			}
+			var submitting = false;
+			var sequence = [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1];
+			if (form && button) {
+				form.addEventListener("submit", function (event) {
+					if (submitting || button.disabled) {
+						return;
+					}
+					event.preventDefault();
+					submitting = true;
+					button.disabled = true;
+					button.classList.add("is-drawing");
+					wheel.classList.add("is-spinning");
+					if (reduceMotion) {
+						form.submit();
+						return;
+					}
+					var step = 0;
+					var delay = 42;
+					var tick = function () {
+						lightSegment(segments, sequence[step % sequence.length]);
+						step++;
+						delay += Math.max(8, Math.floor(step * 3.6));
+						if (step >= sequence.length) {
+							form.submit();
+							return;
+						}
+						window.setTimeout(tick, delay);
+					};
+					tick();
+				});
+			}
+			if (source && modal) {
+				var targetIndex = Math.max(0, resolveGachaIndex(segments, source.getAttribute("data-message"), source.getAttribute("data-type")));
+				var reveal = function () {
+					lightSegment(segments, targetIndex, "is-final");
+					wheel.classList.remove("is-spinning");
+					wheel.classList.add("has-result");
+					openGachaModal(modal, source);
+				};
+				if (reduceMotion) {
+					reveal();
+				} else {
+					var postSteps = 0;
+					var postDelay = 70;
+					var postSpin = function () {
+						lightSegment(segments, postSteps % segments.length);
+						postSteps++;
+						postDelay += 34;
+						if (postSteps > 9) {
+							reveal();
+							return;
+						}
+						window.setTimeout(postSpin, postDelay);
+					};
+					window.setTimeout(postSpin, 280);
+				}
+			}
+			if (modal) {
+				var closeNodes = modal.querySelectorAll("[data-gacha-close]");
+				for (var c = 0; c < closeNodes.length; c++) {
+					closeNodes[c].addEventListener("click", function () {
+						modal.classList.remove("is-open");
+						modal.setAttribute("aria-hidden", "true");
+					});
+				}
+				document.addEventListener("keydown", function (event) {
+					if (event.key === "Escape" && modal.classList.contains("is-open")) {
+						modal.classList.remove("is-open");
+						modal.setAttribute("aria-hidden", "true");
+					}
+				});
+			}
+		}
+		function initSpiritPagination() {
+			var tables = document.querySelectorAll(".spirit-paginated-table");
+			for (var t = 0; t < tables.length; t++) {
+				(function (table) {
+					var rows = Array.prototype.slice.call(table.querySelectorAll("tr"));
+					if (rows.length <= 1) {
+						return;
+					}
+					var bodyRows = rows.slice(1);
+					var pageSize = parseInt(table.getAttribute("data-spirit-page-size"), 10) || 6;
+					var pageCount = Math.ceil(bodyRows.length / pageSize);
+					if (pageCount <= 1) {
+						return;
+					}
+					var pager = document.createElement("nav");
+					pager.className = "spirit_pager";
+					pager.setAttribute("aria-label", "Pagination");
+					table.insertAdjacentElement("afterend", pager);
+
+					var currentPage = 1;
+					var render = function () {
+						for (var i = 0; i < bodyRows.length; i++) {
+							var visible = i >= (currentPage - 1) * pageSize && i < currentPage * pageSize;
+							bodyRows[i].hidden = !visible;
+						}
+						pager.innerHTML = "";
+						var prev = document.createElement("button");
+						prev.type = "button";
+						prev.className = "spirit_pager_button spirit_pager_arrow";
+						prev.textContent = "<";
+						prev.disabled = currentPage === 1;
+						prev.addEventListener("click", function () {
+							if (currentPage > 1) {
+								currentPage--;
+								render();
+							}
+						});
+						pager.appendChild(prev);
+						for (var p = 1; p <= pageCount; p++) {
+							var button = document.createElement("button");
+							button.type = "button";
+							button.className = "spirit_pager_button";
+							button.textContent = p;
+							button.setAttribute("aria-label", "Page " + p);
+							if (p === currentPage) {
+								button.classList.add("is-current");
+								button.setAttribute("aria-current", "page");
+							}
+							button.addEventListener("click", function () {
+								currentPage = parseInt(this.textContent, 10);
+								render();
+							});
+							pager.appendChild(button);
+						}
+						var next = document.createElement("button");
+						next.type = "button";
+						next.className = "spirit_pager_button spirit_pager_arrow";
+						next.textContent = ">";
+						next.disabled = currentPage === pageCount;
+						next.addEventListener("click", function () {
+							if (currentPage < pageCount) {
+								currentPage++;
+								render();
+							}
+						});
+						pager.appendChild(next);
+					};
+					render();
+				}(tables[t]));
+			}
+		}
+		document.addEventListener("DOMContentLoaded", function () {
+			var body = document.body;
+			if (body.classList.contains("witch-ui-ready")) {
+				return;
+			}
+			var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+			var mainPanel = document.querySelector(".main, .content");
+			var searchArea = document.querySelector(".search_area");
+			body.classList.add("witch-ui-ready");
+			createAmbient(body);
+			var currentPath = window.location.pathname.replace(/\/$/, "");
+			var navLinks = document.querySelectorAll(".navi_menu a");
+			for (var n = 0; n < navLinks.length; n++) {
+				var linkPath = new URL(navLinks[n].href, window.location.href).pathname.replace(/\/$/, "");
+				if (linkPath === currentPath || (linkPath.indexOf("/client/item/list/") > -1 && currentPath.indexOf("/client/item/") > -1)) {
+					navLinks[n].classList.add("witch-active");
+				}
+			}
+			if (mainPanel && !reduceMotion) {
+				mainPanel.addEventListener("pointermove", function (event) {
+					var rect = mainPanel.getBoundingClientRect();
+					mainPanel.style.setProperty("--mouse-x", ((event.clientX - rect.left) / rect.width * 100).toFixed(2) + "%");
+					mainPanel.style.setProperty("--mouse-y", ((event.clientY - rect.top) / rect.height * 100).toFixed(2) + "%");
+				});
+				mainPanel.addEventListener("pointerleave", function () {
+					mainPanel.style.removeProperty("--mouse-x");
+					mainPanel.style.removeProperty("--mouse-y");
+				});
+			}
+			if (searchArea) {
+				var select = searchArea.querySelector("select");
+				if (select) {
+					select.addEventListener("change", function () {
+						searchArea.classList.add("witch-search-touched");
+					});
+				}
+			}
+			var rows = document.querySelectorAll(".list_table tr");
+			for (var r = 1; r < rows.length; r++) {
+				rows[r].addEventListener("mouseenter", function () {
+					this.classList.add("witch-row-hover");
+				});
+				rows[r].addEventListener("mouseleave", function () {
+					this.classList.remove("witch-row-hover");
+				});
+			}
+			initSpiritPagination();
+			initGacha(reduceMotion);
+		});
+	}());
+	</script>
+</small>
+	</div>
+</body>
+</html>

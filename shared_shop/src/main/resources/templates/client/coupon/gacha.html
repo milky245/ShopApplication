@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="#{title.coupon.gacha}+' | '+#{shop.title}"></title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user coupon_gacha">
+	<div class="coupon_page coupon_gacha_page">
+	<h2 class="title" th:text="#{title.coupon.gacha}"></h2>
+	<p class="coupon_lead">毎日1回、午前7時にチャレンジ回数が更新されます。</p>
+
+	<div class="coupon_message gacha_result_source" th:if="${couponMessage != null}"
+		th:classappend="${couponMessageType}" th:data-message="${couponMessage}"
+		th:data-type="${couponMessageType}" th:text="${couponMessage}"></div>
+
+	<section class="gacha_panel">
+		<div class="gacha_stage" aria-label="クーポンガチャのラインナップ">
+			<div class="gacha_wheel" data-gacha-wheel>
+				<div class="gacha_lights" aria-hidden="true">
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+				</div>
+				<span class="gacha_pointer" aria-hidden="true"></span>
+				<span class="gacha_segment segment-15" data-result="15"><strong>15%</strong><small>金色の招待券</small></span>
+				<span class="gacha_segment segment-10" data-result="10"><strong>10%</strong><small>月灯りクーポン</small></span>
+				<span class="gacha_segment segment-5" data-result="5"><strong>5%</strong><small>木の実クーポン</small></span>
+				<span class="gacha_segment segment-miss" data-result="miss"><strong>はずれ</strong><small>また明日</small></span>
+				<span class="gacha_core" aria-hidden="true">Coupon<br />Gacha</span>
+			</div>
+			<p class="gacha_hint">見た目は均等、抽選はこれまで通りの確率で行われます。</p>
+		</div>
+		<div class="gacha_status">
+			<h3>今日の魔法抽選</h3>
+			<p>保有枚数 <strong th:text="|${couponCount}／${couponLimit}枚|"></strong></p>
+			<p th:if="${drawnToday}">本日のガチャは実行済みです。</p>
+			<p th:unless="${drawnToday}">本日のガチャに挑戦できます。</p>
+			<p>次回更新：<time th:text="${nextDrawAt}"></time></p>
+			<form th:action="@{/client/coupon/gacha/draw}" method="post">
+				<input type="submit" class="gacha_button" value="ガチャを回す" th:disabled="${!canDraw}" />
+			</form>
+			<p class="coupon_limit_note" th:if="${couponCount >= couponLimit}">
+				保有上限に達しています。クーポンを利用すると再び挑戦できます。
+			</p>
+		</div>
+	</section>
+
+	<div class="gacha_result_modal" data-gacha-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="gachaResultTitle">
+		<div class="gacha_result_backdrop" data-gacha-close></div>
+		<div class="gacha_result_dialog">
+			<button type="button" class="gacha_result_close" data-gacha-close aria-label="閉じる">×</button>
+			<div class="gacha_result_sigil" aria-hidden="true"></div>
+			<h3 id="gachaResultTitle">クーポンガチャの結果</h3>
+			<p data-gacha-modal-message></p>
+			<a class="coupon_link_button" th:href="@{/client/coupon/list}">マイクーポンを見る</a>
+		</div>
+	</div>
+
+	<section class="gacha_lineup">
+		<h3>ラインナップ</h3>
+		<table class="list_table">
+			<tr><th>結果</th><th>確率</th><th>最低利用金額</th><th>有効期間</th></tr>
+			<tr><td>はずれ</td><td>40％</td><td>―</td><td>―</td></tr>
+			<tr th:each="coupon : ${couponLineup}">
+				<td th:text="${coupon.name}"></td>
+				<td th:switch="${coupon.discountRate}">
+					<span th:case="5">35％</span>
+					<span th:case="10">20％</span>
+					<span th:case="15">5％</span>
+					<span th:case="*">―</span>
+				</td>
+				<td th:text="|${#numbers.formatInteger(coupon.minimumOrderAmount, 1, 'COMMA')}円以上|"></td>
+				<td>獲得から30日</td>
+			</tr>
+		</table>
+	</section>
+
+	<div class="coupon_actions">
+		<a class="coupon_link_button" th:href="@{/client/coupon/list}">マイクーポンを見る</a>
+	</div>
+	</div>
+</body>
+
+</html>

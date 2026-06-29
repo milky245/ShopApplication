@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_3block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title th:text="#{login}+' | '+ #{shop.title}"> </title>
+</head>
+
+<body class="user_login">
+<section class="login_spell_page">
+	<div class="login_spell_panel">
+		<div class="login_spell_brand">
+			<span class="login_hat" aria-hidden="true"></span>
+			<p class="login_shop_name">Shared Shop-精霊ショップ</p>
+			<small>Forest Spirit Market</small>
+		</div>
+		<h2 th:class="page_title" th:text="#{login}"></h2>
+		<p th:class="description" th:text="#{msg.login.input}"></p>
+		<form th:action="@{/login}" method="post" class="login_form login_spell_form" th:object="${loginForm}">
+			<th:block th:if="${#fields.hasErrors()}">
+			<div class="error_list">
+				<ul>
+					<li th:each="err:${#fields.detailedErrors()}" th:text="${err.message}"></li>
+				</ul>
+				<br />
+			</div>
+			</th:block>
+			<div class="login_fields">
+				<label class="login_field">
+					<span th:text="#{loginForm.email}"></span>
+					<input type="text" th:field="*{email}" />
+				</label>
+				<label class="login_field">
+					<span th:text="#{loginForm.password}"></span>
+					<input type="password" th:field="*{password}" />
+				</label>
+			</div>
+			<div class="login_actions">
+				<input type="submit" th:value="#{login}" />
+				<a class="login_back_link" th:href="@{/}" th:text="#{msg.back.to.top}"></a>
+			</div>
+		</form>
+	</div>
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="'お届け先'+#{title.delete.check}+' | '+ #{shop.title}"> </title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user delivery_address_delete_check">
+	<h2 th:class="title" th:text="'お届け先'+#{title.delete.check}"></h2>
+	<p th:class="input_message" th:text="#{msg.delete.check}"></p>
+	<div class="user_info_form_area">
+		<ul class="input_list" th:object="${deliveryAddress}">
+			<li>
+				<span class="input_title">氏名</span>
+				<span class="input_value" th:text="*{name}"></span>
+			</li>
+			<li>
+				<span class="input_title">郵便番号</span>
+				<span class="input_value" th:text="*{postalCode}"></span>
+			</li>
+			<li>
+				<span class="input_title">住所</span>
+				<span class="input_value" th:text="*{address}"></span>
+			</li>
+			<li>
+				<span class="input_title">電話番号</span>
+				<span class="input_value" th:text="*{phoneNumber}"></span>
+			</li>
+		</ul>
+		<div class="button_area">
+			<form th:action="@{/client/delivery_address/delete/complete/{id}(id=${deliveryAddress.id})}" method="post">
+				<input type="submit" value="削除" class="send_button" />
+			</form>
+			<form th:action="@{/client/delivery_address/back}" method="post">
+				<input type="submit" value="戻る" class="back_button" />
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="#{title.coupon.list}+' | '+#{shop.title}"></title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user coupon_list">
+	<div class="coupon_page">
+	<h2 class="title" th:text="#{title.coupon.list}"></h2>
+	<p class="coupon_lead">お買い物で利用できるクーポンを、有効期限の近い順に表示しています。</p>
+	<div class="coupon_count">
+		<span>保有枚数</span>
+		<strong th:text="|${couponCount}／${couponLimit}枚|"></strong>
+	</div>
+
+	<p class="coupon_empty" th:if="${#lists.isEmpty(couponBeans)}"
+		th:text="#{msg.coupon.list.none}"></p>
+
+	<div class="coupon_card_list" th:unless="${#lists.isEmpty(couponBeans)}">
+		<article class="coupon_card" th:each="coupon : ${couponBeans}">
+			<div class="coupon_rate"><strong th:text="${coupon.discountRate}"></strong><span>％ OFF</span></div>
+			<div class="coupon_card_body">
+				<h3 th:text="${coupon.name}"></h3>
+				<p><span>最低利用金額</span><strong th:text="|${#numbers.formatInteger(coupon.minimumOrderAmount, 1, 'COMMA')}円|"></strong></p>
+				<p><span>獲得日時</span><time th:text="${coupon.acquiredAt}"></time></p>
+				<p><span>有効期限</span><time th:text="${coupon.expiresAt}"></time></p>
+			</div>
+		</article>
+	</div>
+
+	<div class="coupon_actions">
+		<a class="coupon_link_button" th:href="@{/client/coupon/gacha}">クーポンガチャへ</a>
+		<a th:href="@{/client/user/detail}">会員詳細へ戻る</a>
+	</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+-- 给 ippan_saburo@test.co.jp 增加 1 张 5% 割引クーポン
+INSERT INTO user_coupons (id, user_id, coupon_type_id, acquired_at, expires_at)
+SELECT
+  seq_user_coupons.NEXTVAL,
+  u.id,
+  ct.id,
+  CAST(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo' AS TIMESTAMP),
+  CAST(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo' AS TIMESTAMP)
+    + NUMTODSINTERVAL(ct.validity_days, 'DAY')
+FROM users u
+JOIN coupon_types ct
+  ON ct.id = (
+    SELECT MIN(id)
+    FROM coupon_types
+    WHERE discount_rate = 5
+      AND active_flag = 1
+  )
+WHERE u.email = 'ippan_saburo@test.co.jp';
+
+-- 给 ippan_saburo@test.co.jp 增加 1 张 10% 割引クーポン
+INSERT INTO user_coupons (id, user_id, coupon_type_id, acquired_at, expires_at)
+SELECT
+  seq_user_coupons.NEXTVAL,
+  u.id,
+  ct.id,
+  CAST(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo' AS TIMESTAMP),
+  CAST(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo' AS TIMESTAMP)
+    + NUMTODSINTERVAL(ct.validity_days, 'DAY')
+FROM users u
+JOIN coupon_types ct
+  ON ct.id = (
+    SELECT MIN(id)
+    FROM coupon_types
+    WHERE discount_rate = 10
+      AND active_flag = 1
+  )
+WHERE u.email = 'ippan_saburo@test.co.jp';
+
+-- 重置“当前业务日”的ガチャ次数
+-- 代码规则：日本时间 07:00 前算前一天，07:00 后算当天
+DELETE FROM coupon_gacha_histories
+WHERE user_id = (
+  SELECT id
+  FROM users
+  WHERE email = 'ippan_saburo@test.co.jp'
+)
+AND business_date = TRUNC(
+  CAST(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo' AS DATE) - 7 / 24
+);
+
+COMMIT;

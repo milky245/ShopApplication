@@ -1,0 +1,5580 @@
+﻿@charset "UTF-8";
+
+body {
+	color: #12526d;
+	font-size: 14px;
+}
+
+/* ---- テキスト系 ---- */
+.container .text {
+	font-weight: bold;
+	clear: both;
+}
+
+p {
+	margin: 15px 0;
+}
+/* --- トップ画面 ---*/
+.navi_area~.container {
+	display: flex;
+}
+
+/* ---- 入力フォーム(ログイン) ---- */
+
+.user_container{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.login_form_area ul{
+	margin-left:20px;
+}
+
+.login_form {
+	margin-top: 30px;
+}
+
+.login_form .label {
+	width: 35%;
+	padding: 8px 0;
+	text-align: right;
+	
+}
+
+.login_form .input {
+	width: 55%;
+	padding: 8px 5px;
+	text-align: left;
+}
+
+.login_form input [type=submit] {
+	padding: 3px 10px;
+	    
+}
+.login_form .error_list {
+	display:flex; 
+	justify-content:center;
+}
+
+/* ---- ページタイトル ---- */
+.page_title {
+	margin: 0;
+	padding-left: 20px;
+}
+.login .page_title {
+	font-weight: bold;
+}
+.main .page_title {
+	padding-left: 10px;
+}
+.user_container>.page_title{
+	position: absolute; 
+	left: 0;
+	padding-left: 30px;
+}
+/* ---- 会員登録入力画面へのリンク ---- */
+.regist_link {
+	margin-top: 25px;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.description {
+	margin-top: 30px;
+	text-align: center;
+}
+
+/* ---- ボタン(機能呼出) ---- */
+[type=submit].menu_button {
+	width: 120px;
+	height: 35px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #808080;
+	padding: 0px 10px;
+	margin: 15px 10px 15px 10px;
+	border-radius: 6px;
+	font-weight: bold;
+}
+
+/* ---- ボタン(一覧からの編集、削除) ---- */
+[type=submit].list {
+	width: 80px;
+}
+
+/* ---- ボタン(削除) ---- */
+[type=submit].delete {
+	background: #d22222;
+	color: white;
+}
+[type=submit].delete:disabled {
+  background: #ccc;
+}
+/* ---- ボタン(商品個数指定) ---- */
+[type=button] {
+	width: 80px;
+	height: 35px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #808080;
+	padding: 0px 10px;
+	margin: 15px 5px 15px 5px;
+	border-radius: 6px;
+	font-weight: bold;
+}
+
+/* ---- 商品情報 ---- */
+.item {
+	width: 48.5%;
+	height: 200px;
+	border: 1px solid gray;
+	border-radius: 6px;
+	box-sizing: border-box;
+	text-decoration: none;
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+.main>.item_list,
+.item_list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item:nth-of-type(odd) {
+	margin-right: 3%;
+}
+
+.item .item_name {
+	padding: 5px 10px;
+	color: #3d98bf;
+	font-weight: bold;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 2;
+	width: 100%;
+}
+
+.item img {
+	width: auto;
+	height: 100%;
+	display: block;
+	margin: auto;
+	transition: 0.4s;
+	position: relative;
+	z-index: 1;
+}
+
+.item:hover img {
+	-webkit-transform: scale(1.2, 1.2);
+	-moz-transform: scale(1.2, 1.2);
+	-ms-transform: scale(1.2, 1.2);
+	-o-transform: scale(1.2, 1.2);
+	transform: scale(1.2, 1.2)
+}
+
+.item .description {
+	padding: 5px;
+	color: #4169e1;
+	font-weight: bold;
+}
+
+.sorted_by {
+	margin-top: 23px;
+	font-size: 1.1em;
+	
+}
+
+/* ---- 入力フォーム(検索、登録、変更、削除) ---- */
+.emp_form {
+	margin: 0px auto 30px;
+}
+
+.emp_form .label {
+	width: 45%;
+	text-align: right;
+	padding: 10px 0;
+}
+
+.emp_form .input {
+	width: 55%;
+	text-align: left;
+	padding: 10px 5px;
+}
+
+.user_info_form_area,
+.detail_area {
+	display: block;
+	width: 70%;
+	margin-top:	30px;
+	margin-left:50px;
+}
+.info_form_area {
+	margin-top:	30px;
+	margin-left:50px;
+}
+.payment_method_select {
+	margin-bottom: 40px;
+}
+
+.input_list {
+	width: 100%;
+	font-size: 1.1rem;
+	margin-bottom: 30px;
+}
+
+.input_list li,
+.input_list dd {
+	margin-bottom: 20px;
+}
+.payment_method_select li{
+	margin-bottom: 10px;
+}
+
+/* ---- クーポン ---- */
+.coupon_sidebar {
+	display: grid;
+	gap: 8px;
+	margin-top: 18px;
+}
+.coupon_sidebar a,
+.coupon_link_button {
+	display: block;
+	padding: 9px 12px;
+	border: 1px solid #8fc8dc;
+	border-radius: 6px;
+	background: #edf9fe;
+	color: #12526d;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+.coupon_lead,
+.coupon_empty,
+.coupon_message {
+	margin: 20px 0;
+}
+.coupon_count {
+	display: flex;
+	justify-content: space-between;
+	max-width: 360px;
+	padding: 12px 16px;
+	border-radius: 6px;
+	background: #f0f8fb;
+}
+.coupon_card_list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+	margin: 24px 0;
+}
+.coupon_card {
+	display: flex;
+	min-width: 0;
+	border: 2px solid #7cbfd5;
+	border-radius: 10px;
+	background: #fff;
+	overflow: hidden;
+}
+.coupon_rate {
+	display: flex;
+	flex: 0 0 95px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #3d98bf;
+	color: #fff;
+}
+.coupon_rate strong {
+	font-size: 2rem;
+}
+.coupon_card_body {
+	min-width: 0;
+	padding: 14px;
+}
+.coupon_card_body h3 {
+	margin-bottom: 12px;
+	color: #12526d;
+}
+.coupon_card_body p {
+	display: flex;
+	gap: 12px;
+	justify-content: space-between;
+	margin: 7px 0;
+}
+.coupon_actions {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-top: 24px;
+}
+.coupon_message {
+	padding: 12px 16px;
+	border-radius: 6px;
+	background: #edf9fe;
+	font-weight: bold;
+}
+.coupon_message.win {
+	background: #fff4bf;
+}
+.coupon_message.limit,
+.coupon_error {
+	color: #c00;
+}
+.gacha_panel {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	margin: 30px 0;
+}
+.gacha_wheel {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	border: 8px solid #fff;
+	border-radius: 50%;
+	background: conic-gradient(#e9bc45 0 5%, #55a8ca 5% 25%, #74bf84 25% 60%, #b8c4c9 60% 100%);
+	box-shadow: 0 0 0 3px #3d98bf, 0 8px 20px rgba(18, 82, 109, 0.2);
+}
+.gacha_wheel span {
+	position: absolute;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 1px 2px #555;
+}
+.wheel_15 { top: 16px; left: 105px; }
+.wheel_10 { top: 65px; right: 25px; }
+.wheel_5 { bottom: 48px; right: 40px; }
+.wheel_miss { bottom: 70px; left: 30px; }
+.gacha_status {
+	flex: 1;
+}
+.gacha_button {
+	padding: 12px 30px;
+	background: #fff4bf;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.gacha_button:disabled {
+	background: #ddd;
+	color: #777;
+}
+.coupon_payment_area {
+	margin: 28px 0;
+	padding: 20px;
+	border: 1px solid #b7d8e5;
+	border-radius: 8px;
+	background: #f8fcfe;
+}
+.coupon_payment_area select {
+	width: 100%;
+	margin: 8px 0 16px;
+	padding: 8px;
+}
+.payment_total_row,
+.coupon_preview p {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+.coupon_preview {
+	padding-top: 8px;
+	border-top: 1px solid #b7d8e5;
+}
+.discounted_total,
+.order_discounted_total {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.order_discounted_total {
+	text-align: right;
+}
+.order_discounted_total strong {
+	margin-left: 18px;
+}
+
+@media screen and (max-width: 768px) {
+	body:has(.coupon_page) header .container,
+	body:has(.coupon_payment_area) header .container,
+	body:has(.coupon_order_summary) header .container,
+	body:has(.coupon_page) .navi_menu,
+	body:has(.coupon_payment_area) .navi_menu,
+	body:has(.coupon_order_summary) .navi_menu,
+	body:has(.coupon_page) > .container,
+	body:has(.coupon_payment_area) > .container,
+	body:has(.coupon_order_summary) > .container {
+		width: calc(100% - 24px);
+	}
+	body:has(.coupon_page) .navi_menu,
+	body:has(.coupon_payment_area) .navi_menu,
+	body:has(.coupon_order_summary) .navi_menu {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 4px;
+	}
+	body:has(.coupon_page) .navi_menu li,
+	body:has(.coupon_payment_area) .navi_menu li,
+	body:has(.coupon_order_summary) .navi_menu li {
+		width: 100%;
+	}
+	body:has(.coupon_page) > .container,
+	body:has(.coupon_payment_area) > .container,
+	body:has(.coupon_order_summary) > .container {
+		flex-direction: column;
+	}
+	body:has(.coupon_page) aside.search,
+	body:has(.coupon_payment_area) aside.search,
+	body:has(.coupon_order_summary) aside.search,
+	body:has(.coupon_page) .main,
+	body:has(.coupon_payment_area) .main,
+	body:has(.coupon_order_summary) .main {
+		width: 100%;
+	}
+	body:has(.coupon_page) .search .form,
+	body:has(.coupon_payment_area) .search .form,
+	body:has(.coupon_order_summary) .search .form {
+		padding-bottom: 12px;
+	}
+	.coupon_sidebar {
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 18px;
+	}
+	.coupon_card_list {
+		grid-template-columns: 1fr;
+	}
+	.gacha_panel {
+		align-items: center;
+		flex-direction: column;
+	}
+	.coupon_card_body p {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 2px;
+	}
+	.coupon_actions {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+.input_list label {
+	display: block;
+}
+
+.input_list .input_title,
+.input_list .input_value {
+	display: block;
+	line-height: 1.1rem;
+}
+
+.input_list .input_value {
+	margin-top: 5px;
+	padding-left: 1rem;
+	color: #2a2a2a;
+}
+
+.input_list input,
+.input_list textarea {
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	font-size: 1rem;
+}
+.input_list img {
+	width: 45%;
+}
+.input_list .comments {
+	font-size: 0.8rem;
+	display: block;
+	margin-top: -5px;
+}
+.input_list .radio_label,
+.payment_method_select .radio_label {
+	font-size: 1.1rem;
+}
+.input_list .radio_label{
+	display: inline-block;
+	padding-left: 0.5em;
+}
+.input_list [type="radio"] {
+	display: inline;
+	width: auto;
+}
+
+.input_list .error_message {
+
+	display: block;
+	line-height: 0.9em;
+	font-size: 0.9rem;
+	color: #C00;
+
+}
+
+ ul.error_list{
+ 	margin-left:35px;
+	margin-bottom:5px;
+ }
+ 
+ /* ---- エラー表示 ---- */
+li.error_msg  {
+	display: list-item;
+	line-height: 1.0em;
+	font-size: 0.9rem;
+	color: #FF0000;
+}
+.error_list li{
+	color:#C00;
+	padding-left: 10px;
+	list-style:disc;
+}
+
+.error_list_no_mark li{
+	color:#C00;
+	padding-left: 10px;
+	list-style:none;
+}
+
+.user_info_form_area [type="submit"],
+.info_form_area [type="submit"] {
+	line-height: 2.8rem;
+	min-width: 7rem;
+	margin-right: 20px;
+	font-size: 1rem;
+}
+
+.user_info_form_area .send_button,
+.info_form_area .send_button {
+	background: #edf9fe;
+}
+.user_info_form_area .back_button,
+.info_form_area .back_button {
+	background: #ddd;
+}
+
+.shopping_button{
+	width: 100%;
+}
+
+.detail_button_area {
+	display: block;
+	width: 100%;
+	margin-top:30px;
+}
+.detail_button_area form {
+	 /* display: inline-block; */
+	width:25%;
+	/* margin-left:5%; */
+	text-align: center;
+}
+.detail_button_area form:first-of-type{
+	text-align: right;
+}
+.detail_button_area form:last-of-type{
+	text-align: left;
+}
+.detail_button_area [type="submit"]{
+	/* padding: 0.6em 1.8em; */
+	font-size: 1.2em;
+}
+.card_info {
+	padding-top: 10px;
+	border-top: 1px solid #e8e8e8;
+}
+
+.item_detail_area {
+	overflow: hidden;
+	margin: 30px auto 0;
+}
+.item_image_area {
+	width: 45%;
+}
+.item_image_area img{
+	width: 100%;
+	max-width: 300px;	
+	height: auto;
+	max-height: 300px;
+}
+.item_input_area img{
+	width: 100%;
+	max-width: 300px;	
+	height: auto;
+	max-height: 300px;
+}
+.item_detail_list {
+	width: 50%;
+}
+
+.item_detail_area + .user_info_form {
+	clear: both;
+}
+
+/* スキルアップテクニック9
+ * :first-of-typeは擬似クラスの一種で、
+ * 設定した同要素複数の中から最初に現れる要素に対し設定を行います。
+ * 最初に現れるform要素内のボタンに対しmarginを設定し位置を決めています。
+ */
+.emp_date_area form:first-of-type input[type=submit] {
+	margin-left: 37.5%;
+}
+
+/* ---- 検索フォーム ---- */
+.search [type=text] {
+	width: 115px;
+}
+
+.search select {
+	width: 125px;
+}
+
+/* ---- 処理完了メッセージの出力箇所 ---- */
+.message {
+	clear: both;
+	margin-top: 80px;
+	text-align: center;
+}
+
+.back_to_top_link {
+	margin-top: 30px;
+}
+
+/* ---- 入力欄全般 ---- */
+[type=text], [type=password] {
+	padding: 3px;
+}
+
+[type=date] {
+	padding: 1px 3px;
+}
+
+/* ---- セレクトボックス ---- */
+select {
+	padding: 2px 5px 5px;
+	color: #12526d;
+}
+
+/* ---- ボタン全般 ---- */
+[type=submit] {
+	border: 1px solid #808080;
+	border-radius: 6px;
+	padding: 2px 10px;
+	color: #12526d;
+	background: #fff;
+	box-shadow: 1px 2px 2px #eee;
+	text-shadow: 1px 1px 1px #d8d8d8;
+}
+
+/* スキルアップテクニック10
+ * background-imageプロパティの値linear-gradientによってグラデーションを設定しています。
+ * ブラウザの実装状況によりベンダープレフィックスを設定。
+ * 最後にプレフィックス無しを記述することで上書きを行い実装後にも対応できる順番としています。
+ * またlinear-gradientが解釈できないブラウザのために背景色を設定しています。
+ * このような、誰にでも同様のデザインを届ける考え方を『プログレッシブエンハンスメント』と言います。
+ */
+[type=submit].delete {
+	background: #d44444;
+	background-image: -webkit-linear-gradient(top, #d44444, #9e1818);
+	background-image: -moz-linear-gradient(top, #d44444, #9e1818);
+	background-image: -ms-linear-gradient(top, #d44444, #9e1818);
+	background-image: -o-linear-gradient(top, #d44444, #9e1818);
+	background-image: linear-gradient(to bottom, #d44444, #9e1818);
+	color: #fff;
+	text-shadow: 1px 1px 1px #616161;
+}
+
+/* ---- テーブル ---- */
+/* ---- 共通 ---- */
+.list_table,
+.detail_table {
+	border-bottom: 1px solid #f0f8fb;
+	background-color: #fff;
+	border-collapse: collapse;
+	margin: 50px auto 20px;
+}
+.list_table th,
+.detail_table th {
+	white-space: nowrap;
+	padding: 5px;
+    background: #add8e6;
+    font-weight: normal;
+    position: relative;
+}
+.list_table td,
+.detail_table td {
+	padding: 10px;
+}
+
+/* ---- 個別 ---- */
+/* ---- 一覧テーブル ---- */
+.list_table {
+	width: 100%;
+	text-align: center;
+}
+.list_table tr:nth-of-type(odd) {
+    background: #f0f8fb;
+}
+.admin .list_table tr:nth-of-type(odd) {
+    background: #fff0ec;
+}
+.admin .list_table th{
+	background: #ffc6b9;
+}
+.list_table th:after {
+    content: "";
+    display: block;
+    height: 90%;
+    width: 1px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 5%;
+}
+
+/* ---- 詳細テーブル ---- */
+.detail_table {
+	width: 80%;
+}
+.detail_table caption {
+	text-align: left;
+	font-size: 1.1rem;
+}
+.detail_table th{
+	border-bottom: 1px solid #fff;
+	text-align: right;
+	padding-right: 10px;
+}
+.admin .detail_table th{
+	background: #ffc6b9;
+}
+.detail_table td{
+	border-bottom: 1px solid #f0f8fb;
+}
+
+/* ---- 会員一覧 ---- */
+.sign_up_form {
+	display:flex;
+	flex-direction: row-reverse;
+}
+.sign_up_form ~.list_table{
+	margin: 20px auto 20px;
+}
+.sign_up_form .menu_button{
+	margin-right: 0px;
+	margin-bottom:8px;
+}
+.category_list .sign_up_form .menu_button{
+	width:auto;
+}
+.list_table.user {
+	clear: both;
+}
+
+/* ---- 商品一覧 ---- */
+.list_table.item_list th:last-of-type {
+	width:20%;
+}
+.list_table.item_list{
+	margin: 0px auto 20px;
+}
+
+.list_table.item_list>tbody th,.list_table.item_list>tbody td{
+	flex-basis: 100%
+}
+
+.admin > .container{
+	display: flex;
+}
+
+/* ---- 商品詳細 ---- */
+.list_table.item_detail{
+	margin: 10px auto 20px;
+}
+.item_detail_area{
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ---- 関連商品 ---- */
+.related_items {
+	margin-top: 45px;
+}
+
+.related_items_title {
+	border-bottom: 2px solid #3d98bf;
+	padding: 8px 4px;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.related_item_list {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 16px;
+	margin-top: 20px;
+}
+
+.related_item {
+	min-width: 0;
+	border: 1px solid #c6dce5;
+	border-radius: 6px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.related_item_image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.related_item_image img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.related_item_info {
+	border-top: 1px solid #e8f1f5;
+	padding: 10px;
+}
+
+.related_item_name {
+	display: -webkit-box;
+	min-height: 2.8em;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	color: #3d98bf;
+	font-weight: bold;
+	line-height: 1.4;
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+.related_item_name:hover {
+	text-decoration: underline;
+}
+
+.related_item_price {
+	margin: 10px 0 0;
+	color: #12526d;
+}
+
+@media screen and (max-width: 768px) {
+	.related_item_list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.related_item_list {
+		grid-template-columns: 1fr;
+	}
+}
+/* ---- 注文一覧 ---- */
+.list_table.order{
+	margin-top: 50px;
+}
+.list_table.order a{
+	text-decoration: underline;
+}
+
+/* ---- カテゴリ一覧 ---- */
+.list_table.category_list th:last-of-type {
+	width:30%;
+}
+.list_table.category_list{
+	margin: 10px auto 20px;
+}
+
+/* ---- お気に入り一覧 ---- */
+.favorite_delete_area {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	z-index: 3;
+	text-align: right;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.favorite_delete_area .item_price {
+	font-size: 0.9em;
+	margin-bottom: 5px;
+}
+
+.favorite_delete_area .delete_button {
+	background-color: #f44336;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.favorite_delete_area .delete_button:hover {
+	background-color: #d32f2f;
+}
+
+/* ---- 注文詳細 ---- */
+.list_table .total {
+	font-weight: bold;
+}
+.detail_table.payment{
+	margin: 10px auto 20px;
+}
+/* ---- 注文最終確認 ---- */
+.list_table.item_detail td:first-of-type{
+	width: 20%;
+}
+.list_table.item_detail img{
+	height: 70px;
+	width: auto;
+	max-width:150px;
+	vertical-align:middle;
+}
+.detail_table.address,
+.detail_table.pay {
+	width: 100%;
+}
+.detail_table.pay {
+	margin-bottom: 50px;
+}
+.detail_table.address{
+	margin:10px auto 20px;
+}
+/* ---- 買物カゴ ---- */
+.list_table.basket {
+	margin: 40px auto 21px;
+}
+.list_table.basket th:first-of-type {
+	width: 45%;
+}
+.list_table.basket th:last-of-type {
+	width: 42%;
+}
+.list_table.basket td:first-of-type {
+	padding-left: 20px;
+	text-align: left;
+}
+.list_table.basket [type="button"],
+.list_table.basket .delete {
+	margin: 0 3px;
+}
+.list_table.basket .delete{
+	width: 80px;
+	height: 35px;
+	padding: 0px 10px;
+	border-radius: 6px;
+	font-weight: bold;
+}
+
+
+/* ---- 商品一覧(運用管理者向け) ---- */
+
+
+
+
+/* ---- 支払い方法入力 ---- */
+.container #checkButton {
+	margin: 10px 0;
+}
+
+#card .deadline {
+	display: flex;
+}
+
+#card .deadline input[type=text] {
+	width: 14%;
+	height: 30px;
+	border-radius: 6px;
+	border: 1px solid gray;
+	margin: 10px 0;
+}
+
+.deadline .text {
+	width: 5px;
+	line-height: 51px;
+	margin: 0 7px;
+}
+
+/* ---- 買い物かご ---- */
+.itemController {
+	width: 40%;
+}
+
+.itemController form {
+	display: inline;
+}
+
+form.add {
+	margin-left: 15px;
+}
+
+form.delete {
+	margin-left: 30px;
+}
+
+.buy input[type=submit] {
+	margin-right: 10px;
+}
+
+/* ---- 商品画像(詳細、編集、削除) ---- */
+.value img {
+	width: 100%;
+	height: auto;
+}
+
+/* ---- リンク表示(ブロック中央寄せ) ---- */
+p.link_center {
+	text-align: center;
+}
+
+/* ---- 一覧表示全般 ---- */
+.paging {
+	text-align: center;
+	margin: 15px 0;
+	font-size: 1rem;
+}
+.paging li{
+	display: inline-block;
+}
+.paging .current,
+.paging a{
+	padding: 0 3px;
+}
+.paging a{
+	display: block;
+}
+
+
+
+/* ---- ログイン履歴・お届け先管理(会員詳細画面) ---- */
+.login_history_title,
+.delivery_address_title {
+	margin-top: 32px !important; /* ボタン群との余白(24px～32px) */
+	margin-left: -50px;           /* 親要素(.info_form_area)の余白を打ち消してメインタイトルと揃える */
+}
+
+.login_history_area,
+.delivery_address_area {
+	margin-left: 50px; /* 会員情報の詳細エリア(detail_area)と左端位置を揃える */
+	width: 70%;       /* 会員情報の詳細エリアと幅を揃える */
+}
+
+.login_history_list,
+.delivery_address_list {
+	margin-top: 10px !important; /* 見出しとの余白を調整 */
+}
+
+/* 一覧画面の行内操作リンク（編集・削除）用 */
+.list_table .address_cell {
+	text-align: left;
+	min-width: 250px;
+	word-break: break-all;
+}
+
+.list_table .cell_with_ops {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	padding: 8px 10px !important;
+}
+
+.list_table .ops_links {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 0.9rem;
+	white-space: nowrap;
+}
+
+.list_table .inline_form {
+	display: inline;
+	margin: 0;
+}
+
+.list_table .ops_links a {
+	color: #3d98bf;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.list_table .ops_links a:hover {
+	color: #12526d;
+}
+
+.list_table .ops_links a.delete_link {
+	color: #d22222;
+}
+
+.list_table .ops_links a.delete_link:hover {
+	color: #9e1818;
+}
+
+.list_table .separator {
+	color: #ccc;
+	margin: 0 2px;
+}
+
+.btn_small {
+	padding: 1px 8px !important;
+	font-size: 0.85rem !important;
+	min-width: 60px;
+}
+
+.all_show_link {
+	text-align: right;
+	margin-top: 10px;
+}
+
+/* ---- 商品一覧: ナチュラル魔女の森風 ---- */
+:root {
+	--witch-bg: #f7f0d8;
+	--witch-paper: #fffaf0;
+	--witch-paper-soft: #f3eed2;
+	--witch-green: #2f5b2c;
+	--witch-green-deep: #1f3f22;
+	--witch-green-soft: #dfe8c8;
+	--witch-moss: #6c7f35;
+	--witch-wood: #8a6a3f;
+	--witch-wood-deep: #5d3f20;
+	--witch-border: #b7a875;
+	--witch-text: #2f2a20;
+}
+
+body:has(.witch-item-list-page) {
+	background:
+		radial-gradient(circle at 15% 8%, rgba(111, 143, 78, 0.16), transparent 26%),
+		radial-gradient(circle at 88% 18%, rgba(77, 112, 54, 0.13), transparent 28%),
+		linear-gradient(180deg, #fbf7e8 0%, #f0e7c9 100%);
+	color: var(--witch-text);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", "Yu Gothic", serif;
+}
+
+body:has(.witch-item-list-page)::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0.18;
+	background-image:
+		linear-gradient(45deg, rgba(90, 70, 30, 0.04) 25%, transparent 25%),
+		linear-gradient(-45deg, rgba(90, 70, 30, 0.03) 25%, transparent 25%);
+	background-size: 6px 6px;
+	z-index: 0;
+}
+
+body:has(.witch-item-list-page) header,
+body:has(.witch-item-list-page) .navi_area,
+body:has(.witch-item-list-page) footer {
+	background: transparent;
+}
+
+body:has(.witch-item-list-page) header,
+body:has(.witch-item-list-page) .navi_area,
+body:has(.witch-item-list-page) > .container,
+body:has(.witch-item-list-page) footer {
+	position: relative;
+	z-index: 1;
+}
+
+body:has(.witch-item-list-page) header .container,
+body:has(.witch-item-list-page) > .container,
+body:has(.witch-item-list-page) .navi_menu {
+	width: min(1280px, calc(100% - 40px));
+}
+
+body:has(.witch-item-list-page) header .container {
+	position: relative;
+	align-items: flex-start;
+	min-height: 118px;
+	padding-top: 18px;
+}
+
+/* 素材差し替え候補: logo_witch_hat.png / hanging_herbs.png */
+body:has(.witch-item-list-page) header .container::before,
+body:has(.witch-item-list-page) header .container::after {
+	content: "❧";
+	position: absolute;
+	top: 20px;
+	color: rgba(72, 104, 45, 0.72);
+	font-size: 64px;
+	line-height: 1;
+}
+
+body:has(.witch-item-list-page) header .container::before {
+	left: -16px;
+	transform: rotate(72deg);
+}
+
+body:has(.witch-item-list-page) header .container::after {
+	right: 0;
+	transform: rotate(-34deg);
+}
+
+body:has(.witch-item-list-page) .site_title {
+	position: relative;
+	margin: 10px 0 0 74px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 0;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.05;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+body:has(.witch-item-list-page) .site_title::before {
+	content: "なんでも\A魔女商会";
+	display: block;
+	white-space: pre;
+	font-size: 38px;
+}
+
+body:has(.witch-item-list-page) .site_title::after {
+	content: "Anything Witch Shop";
+	display: block;
+	margin-top: 6px;
+	color: #5f5638;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+body:has(.witch-item-list-page) .user_info {
+	position: relative;
+	z-index: 1;
+	color: var(--witch-text);
+	font-size: 1.05rem;
+}
+
+body:has(.witch-item-list-page) a {
+	color: var(--witch-green-deep);
+}
+
+body:has(.witch-item-list-page) .navi_menu {
+	display: flex;
+	gap: 14px;
+	padding: 0 0 20px;
+}
+
+body:has(.witch-item-list-page) .navi_menu li {
+	width: auto;
+	flex: 1;
+}
+
+body:has(.witch-item-list-page) .navi_menu a {
+	box-sizing: border-box;
+	border: 2px solid var(--witch-border);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.92);
+	box-shadow:
+		inset 0 0 0 3px rgba(255, 255, 255, 0.42),
+		0 3px 8px rgba(70, 50, 20, 0.12);
+	color: var(--witch-green-deep);
+	font-weight: 700;
+	text-shadow: none;
+}
+
+body:has(.witch-item-list-page) .navi_menu li:first-of-type a,
+body:has(.witch-item-list-page) .navi_menu li:last-of-type a {
+	border-radius: 8px;
+}
+
+body:has(.witch-item-list-page) .navi_menu a:hover,
+body:has(.witch-item-list-page) .navi_menu li:nth-child(2) a {
+	border-color: #9a8f56;
+	background: linear-gradient(180deg, var(--witch-green), var(--witch-green-deep));
+	color: #fff8df;
+}
+
+body:has(.witch-item-list-page) > .container {
+	align-items: flex-start;
+	gap: 26px;
+	margin-top: 0;
+}
+
+body:has(.witch-item-list-page) aside.search {
+	width: 28%;
+	min-width: 270px;
+}
+
+body:has(.witch-item-list-page) .main {
+	position: relative;
+	box-sizing: border-box;
+	width: 72%;
+	padding: 26px 28px 44px;
+	border: 1.5px solid rgba(146, 130, 82, 0.7);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.94);
+	box-shadow:
+		inset 0 0 24px rgba(93, 79, 38, 0.08),
+		0 8px 18px rgba(65, 48, 20, 0.13);
+}
+
+/* 素材差し替え候補: leaf_corner_deco.png */
+body:has(.witch-item-list-page) .main::before,
+body:has(.witch-item-list-page) .main::after {
+	content: "❧";
+	position: absolute;
+	color: rgba(101, 126, 55, 0.42);
+	font-size: 46px;
+	line-height: 1;
+	pointer-events: none;
+}
+
+body:has(.witch-item-list-page) .main::before {
+	top: 10px;
+	left: 12px;
+}
+
+body:has(.witch-item-list-page) .main::after {
+	right: 12px;
+	bottom: 10px;
+	transform: rotate(180deg);
+}
+
+.witch-item-list-page {
+	position: relative;
+	z-index: 1;
+}
+
+body:has(.witch-item-list-page) .main .title::before {
+	display: none;
+}
+
+.witch-item-list-page .witch-page-title {
+	display: block;
+	width: min(330px, 72%);
+	margin: 0 auto 28px;
+	padding: 14px 28px;
+	border: 1px solid #9a8f56;
+	border-radius: 8px;
+	background: linear-gradient(180deg, var(--witch-green), var(--witch-green-deep));
+	box-shadow:
+		inset 0 0 0 2px rgba(225, 208, 120, 0.28),
+		0 4px 8px rgba(40, 30, 10, 0.18);
+	color: #fff8df;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.9rem;
+	font-weight: 700;
+	letter-spacing: 0;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.7);
+}
+
+body:has(.witch-item-list-page) .search_area {
+	position: relative;
+	padding-bottom: 190px;
+}
+
+body:has(.witch-item-list-page) .search_area .title {
+	border: 2px solid var(--witch-wood-deep);
+	border-bottom: 0;
+	border-radius: 8px 8px 0 0;
+	background:
+		linear-gradient(90deg, rgba(80, 50, 20, 0.08) 1px, transparent 1px),
+		linear-gradient(180deg, #b58a52, #9b7442);
+	background-size: 18px 100%, 100% 100%;
+	color: #273116;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.28rem;
+	font-weight: 700;
+	text-shadow: 0 1px 0 rgba(245, 226, 170, 0.6);
+}
+
+body:has(.witch-item-list-page) .search .form {
+	padding: 18px 14px 20px;
+	border: 2px solid var(--witch-wood-deep);
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	background:
+		linear-gradient(90deg, rgba(80, 50, 20, 0.08) 1px, transparent 1px),
+		linear-gradient(180deg, #b58a52, #9b7442);
+	background-size: 18px 100%, 100% 100%;
+	box-shadow: 0 5px 10px rgba(55, 38, 15, 0.22);
+}
+
+body:has(.witch-item-list-page) .search .form form {
+	display: flex;
+	gap: 10px;
+}
+
+body:has(.witch-item-list-page) .search select {
+	flex: 1;
+	width: auto;
+	min-width: 0;
+	padding: 8px 10px;
+	border: 1px solid rgba(64, 49, 30, 0.65);
+	border-radius: 6px;
+	background: #fffaf0;
+	color: var(--witch-text);
+	font-size: 1rem;
+}
+
+body:has(.witch-item-list-page) [type=submit] {
+	border: 1px solid var(--witch-green-deep);
+	border-radius: 6px;
+	background: linear-gradient(180deg, #496f31, #294821);
+	box-shadow: 0 2px 4px rgba(53, 38, 12, 0.22);
+	color: #fff8df;
+	font-weight: 700;
+	text-shadow: none;
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar {
+	gap: 9px;
+	margin-top: 24px;
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 54px;
+	padding: 10px 14px;
+	border: 1.5px solid rgba(111, 127, 53, 0.74);
+	border-radius: 8px;
+	background: rgba(232, 238, 205, 0.78);
+	box-shadow:
+		inset 0 0 0 2px rgba(255, 255, 245, 0.5),
+		0 2px 5px rgba(77, 66, 28, 0.1);
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-align: left;
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a:hover {
+	background: rgba(217, 229, 178, 0.9);
+	transform: translateY(-1px);
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a::before {
+	display: inline-grid;
+	width: 38px;
+	height: 38px;
+	place-items: center;
+	flex: 0 0 38px;
+	border: 1px solid rgba(111, 127, 53, 0.55);
+	border-radius: 50%;
+	background: rgba(255, 250, 235, 0.72);
+	color: var(--witch-moss);
+	font-size: 1.15rem;
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(1)::before {
+	content: "券";
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(2)::before {
+	content: "晶";
+}
+
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(3)::before {
+	content: "♡";
+}
+
+/* 素材差し替え候補: plants_books_bottle.png */
+body:has(.witch-item-list-page) .search_area::after {
+	content: "⚘  ✧  ❧";
+	position: absolute;
+	left: 6px;
+	right: 6px;
+	bottom: 10px;
+	min-height: 130px;
+	padding-top: 74px;
+	border-bottom: 3px solid rgba(93, 63, 32, 0.55);
+	color: rgba(72, 104, 45, 0.78);
+	font-size: 2.4rem;
+	text-align: center;
+	text-shadow: 0 2px 0 rgba(255, 250, 235, 0.75);
+}
+
+.witch-item-list-page .sorted_by {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin: 0 0 22px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.08rem;
+	font-weight: 700;
+}
+
+.witch-item-list-page .sorted_by span,
+.witch-item-list-page .sorted_by a {
+	padding-bottom: 3px;
+}
+
+.witch-item-list-page .sorted_by span {
+	border-bottom: 2px solid var(--witch-moss);
+	color: var(--witch-green-deep);
+}
+
+.witch-item-list-page .sorted_by a {
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(47, 91, 44, 0.55);
+}
+
+.witch-item-list-page .sorted_by a:hover,
+.witch-item-list-page .witch-product-name-link:hover {
+	color: var(--witch-moss);
+}
+
+.witch-item-list-page .sorted_by p {
+	flex-basis: 100%;
+	margin: 12px 0 0;
+}
+
+.witch-item-list-page .witch-product-table {
+	overflow: hidden;
+	margin: 0 auto 16px;
+	border: 1px solid rgba(183, 168, 117, 0.64);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.96);
+	border-collapse: separate;
+	border-spacing: 0;
+	box-shadow: 0 3px 10px rgba(65, 48, 20, 0.08);
+}
+
+.witch-item-list-page .witch-product-table tr:first-child th {
+	padding: 13px 12px;
+	border-bottom: 1px solid rgba(183, 168, 117, 0.45);
+	background: linear-gradient(180deg, #557331, #365421);
+	color: #fff8df;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.55);
+}
+
+.witch-item-list-page .witch-product-table tr:first-child th:first-child {
+	border-radius: 8px 0 0 0;
+}
+
+.witch-item-list-page .witch-product-table tr:first-child th:last-child {
+	border-radius: 0 8px 0 0;
+}
+
+.witch-item-list-page .witch-product-table th::after {
+	background: rgba(255, 250, 235, 0.45);
+}
+
+.witch-item-list-page .witch-product-table td {
+	padding: 14px 16px;
+	border-bottom: 1px solid rgba(183, 168, 117, 0.28);
+	color: var(--witch-text);
+	font-size: 1.05rem;
+}
+
+.witch-item-list-page .witch-product-table tr:nth-child(even) td {
+	background: rgba(255, 252, 240, 0.94);
+}
+
+.witch-item-list-page .witch-product-table tr:nth-child(odd) td {
+	background: rgba(229, 236, 203, 0.62);
+}
+
+.witch-item-list-page .witch-product-table tr:last-child td {
+	border-bottom: 0;
+}
+
+.witch-item-list-page .witch-product-table td.image {
+	width: 24%;
+}
+
+.witch-item-list-page .witch-product-image {
+	width: 90px;
+	height: 90px;
+	max-width: 120px;
+	object-fit: contain;
+	vertical-align: middle;
+	filter: drop-shadow(0 3px 2px rgba(60, 45, 20, 0.14));
+}
+
+.witch-item-list-page .witch-product-name-link {
+	color: var(--witch-green-deep);
+	font-weight: 700;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(47, 91, 44, 0.55);
+}
+
+@media screen and (max-width: 900px) {
+	body:has(.witch-item-list-page) header .container,
+	body:has(.witch-item-list-page) > .container,
+	body:has(.witch-item-list-page) .navi_menu {
+		width: calc(100% - 24px);
+	}
+
+	body:has(.witch-item-list-page) header .container,
+	body:has(.witch-item-list-page) > .container {
+		flex-direction: column;
+	}
+
+	body:has(.witch-item-list-page) .site_title {
+		margin-left: 46px;
+	}
+
+	body:has(.witch-item-list-page) .navi_menu {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+
+	body:has(.witch-item-list-page) aside.search,
+	body:has(.witch-item-list-page) .main {
+		width: 100%;
+		min-width: 0;
+	}
+
+	body:has(.witch-item-list-page) .search_area {
+		padding-bottom: 0;
+	}
+
+	body:has(.witch-item-list-page) .search_area::after {
+		display: none;
+	}
+
+	body:has(.witch-item-list-page) .coupon_sidebar {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 560px) {
+	body:has(.witch-item-list-page) header .container::before,
+	body:has(.witch-item-list-page) header .container::after {
+		top: 28px;
+		font-size: 48px;
+	}
+
+	body:has(.witch-item-list-page) header .container::before {
+		left: 0;
+	}
+
+	body:has(.witch-item-list-page) header .container::after {
+		right: 20px;
+	}
+
+	body:has(.witch-item-list-page) .site_title::before {
+		font-size: 30px;
+	}
+
+	body:has(.witch-item-list-page) .main {
+		padding: 22px 12px 36px;
+	}
+
+	.witch-item-list-page .witch-page-title {
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 1.55rem;
+	}
+
+	body:has(.witch-item-list-page) .search .form form,
+	.witch-item-list-page .sorted_by,
+	body:has(.witch-item-list-page) .coupon_sidebar {
+		grid-template-columns: 1fr;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.witch-item-list-page .witch-product-table {
+		font-size: 0.9rem;
+		table-layout: fixed;
+	}
+
+	.witch-item-list-page .witch-product-table td,
+	.witch-item-list-page .witch-product-table tr:first-child th {
+		padding: 10px 4px;
+		overflow-wrap: anywhere;
+	}
+
+	.witch-item-list-page .witch-product-image {
+		width: 52px;
+		height: 52px;
+	}
+
+	.witch-item-list-page .witch-product-table td.image {
+		width: 30%;
+	}
+}
+
+/* ---- 商品一覧: 絵本風の追加ディテールと軽いインタラクション ---- */
+body:has(.witch-item-list-page).witch-ui-ready {
+	overflow-x: hidden;
+}
+
+body:has(.witch-item-list-page)::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 8% 88%, rgba(86, 126, 58, 0.18), transparent 18%),
+		radial-gradient(circle at 92% 84%, rgba(123, 143, 68, 0.13), transparent 20%),
+		linear-gradient(90deg, rgba(47, 91, 44, 0.11), transparent 12%, transparent 88%, rgba(47, 91, 44, 0.09));
+	mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 100%);
+}
+
+body:has(.witch-item-list-page) header .container {
+	isolation: isolate;
+}
+
+body:has(.witch-item-list-page) .site_title {
+	filter: drop-shadow(0 2px 0 rgba(255, 250, 235, 0.85));
+}
+
+body:has(.witch-item-list-page) .site_title::before {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 8px;
+	text-decoration-color: rgba(137, 128, 74, 0.38);
+}
+
+body:has(.witch-item-list-page) .site_title + .site_title {
+	display: none;
+}
+
+body:has(.witch-item-list-page) .navi_menu a {
+	position: relative;
+	overflow: hidden;
+}
+
+body:has(.witch-item-list-page) .navi_menu a::before,
+body:has(.witch-item-list-page) .navi_menu a::after {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-color: rgba(154, 143, 86, 0.78);
+	border-style: solid;
+	pointer-events: none;
+}
+
+body:has(.witch-item-list-page) .navi_menu a::before {
+	top: 7px;
+	left: 8px;
+	border-width: 2px 0 0 2px;
+	border-radius: 6px 0 0 0;
+}
+
+body:has(.witch-item-list-page) .navi_menu a::after {
+	right: 8px;
+	bottom: 7px;
+	border-width: 0 2px 2px 0;
+	border-radius: 0 0 6px 0;
+}
+
+body:has(.witch-item-list-page) .navi_menu a:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		inset 0 0 0 3px rgba(255, 248, 223, 0.18),
+		0 6px 12px rgba(56, 42, 18, 0.18);
+}
+
+body:has(.witch-item-list-page) .main {
+	background:
+		radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 16%), rgba(255, 248, 190, 0.20), transparent 22%),
+		linear-gradient(180deg, rgba(255, 253, 242, 0.96), rgba(249, 241, 216, 0.96));
+}
+
+body:has(.witch-item-list-page) .main::before,
+body:has(.witch-item-list-page) .main::after {
+	text-shadow:
+		0 1px 0 rgba(255, 250, 235, 0.8),
+		0 0 12px rgba(117, 146, 79, 0.22);
+}
+
+.witch-item-list-page .witch-page-title {
+	position: relative;
+	isolation: isolate;
+}
+
+.witch-item-list-page .witch-page-title::before,
+.witch-item-list-page .witch-page-title::after {
+	content: "❧";
+	position: absolute;
+	top: 50%;
+	color: rgba(220, 202, 121, 0.72);
+	font-size: 1.45rem;
+	line-height: 1;
+	transform: translateY(-50%);
+}
+
+.witch-item-list-page .witch-page-title::before {
+	left: 16px;
+}
+
+.witch-item-list-page .witch-page-title::after {
+	right: 16px;
+	transform: translateY(-50%) rotate(180deg);
+}
+
+body:has(.witch-item-list-page) .search_area .title,
+body:has(.witch-item-list-page) .search .form {
+	position: relative;
+	overflow: hidden;
+}
+
+body:has(.witch-item-list-page) .search_area .title::before,
+body:has(.witch-item-list-page) .search .form::before,
+body:has(.witch-item-list-page) .search .form::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	background: rgba(92, 59, 24, 0.16);
+	box-shadow: inset 0 0 0 1px rgba(255, 233, 171, 0.18);
+}
+
+body:has(.witch-item-list-page) .search_area .title::before {
+	width: 42px;
+	height: 18px;
+	top: 8px;
+	left: 20px;
+	transform: rotate(-11deg);
+}
+
+body:has(.witch-item-list-page) .search .form::before {
+	width: 56px;
+	height: 22px;
+	right: 28px;
+	bottom: 18px;
+	transform: rotate(8deg);
+}
+
+body:has(.witch-item-list-page) .search .form::after {
+	width: 26px;
+	height: 12px;
+	left: 34px;
+	bottom: 24px;
+	transform: rotate(-18deg);
+}
+
+body:has(.witch-item-list-page) .search select:focus,
+body:has(.witch-item-list-page) [type=submit]:focus,
+.witch-item-list-page .witch-product-name-link:focus {
+	outline: 2px solid rgba(111, 127, 53, 0.75);
+	outline-offset: 3px;
+}
+
+body:has(.witch-item-list-page) .witch-search-touched .title {
+	box-shadow:
+		inset 0 0 0 2px rgba(255, 232, 144, 0.24),
+		0 0 16px rgba(240, 215, 120, 0.18);
+}
+
+.witch-item-list-page .witch-product-table {
+	position: relative;
+}
+
+.witch-item-list-page .witch-product-table td {
+	transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.witch-item-list-page .witch-product-table tr.witch-row-hover td,
+.witch-item-list-page .witch-product-table tr:hover td {
+	background: rgba(240, 232, 187, 0.78);
+	box-shadow: inset 0 1px 0 rgba(255, 250, 230, 0.75), inset 0 -1px 0 rgba(158, 143, 86, 0.16);
+}
+
+.witch-item-list-page .witch-product-table tr.witch-row-hover .witch-product-image,
+.witch-item-list-page .witch-product-table tr:hover .witch-product-image {
+	transform: translateY(-2px) scale(1.03);
+}
+
+.witch-item-list-page .witch-product-image {
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.witch-item-list-page .witch-product-name-link {
+	background-image: linear-gradient(90deg, rgba(111, 127, 53, 0.28), rgba(111, 127, 53, 0.28));
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	background-size: 0 6px;
+	transition: background-size 0.18s ease, color 0.18s ease;
+}
+
+.witch-item-list-page .witch-product-name-link:hover {
+	background-size: 100% 6px;
+}
+
+.witch-ambient {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.witch-ambient span {
+	position: absolute;
+	left: 9%;
+	top: 21%;
+	color: rgba(95, 126, 62, 0.26);
+	font-size: 14px;
+	animation: witch-float 9s ease-in-out infinite;
+	animation-delay: calc(var(--i) * -1.35s);
+}
+
+.witch-ambient span:nth-child(2) {
+	left: 23%;
+	top: 54%;
+	font-size: 20px;
+}
+
+.witch-ambient span:nth-child(3) {
+	left: 38%;
+	top: 28%;
+	font-size: 24px;
+}
+
+.witch-ambient span:nth-child(4) {
+	left: 56%;
+	top: 66%;
+	font-size: 16px;
+}
+
+.witch-ambient span:nth-child(5) {
+	left: 72%;
+	top: 20%;
+	font-size: 22px;
+}
+
+.witch-ambient span:nth-child(6) {
+	left: 86%;
+	top: 48%;
+	font-size: 18px;
+}
+
+.witch-ambient span:nth-child(7) {
+	left: 67%;
+	top: 82%;
+	font-size: 15px;
+}
+
+.witch-ambient span:nth-child(even) {
+	color: rgba(159, 140, 73, 0.22);
+	animation-duration: 11s;
+}
+
+@keyframes witch-float {
+	0%,
+	100% {
+		opacity: 0.24;
+		transform: translate3d(0, 0, 0) rotate(0deg);
+	}
+	50% {
+		opacity: 0.6;
+		transform: translate3d(8px, -16px, 0) rotate(14deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body:has(.witch-item-list-page) .navi_menu a:hover,
+	.witch-item-list-page .witch-product-table td,
+	.witch-item-list-page .witch-product-image,
+	.witch-item-list-page .witch-product-name-link,
+	.witch-ambient span {
+		animation: none;
+		transition: none;
+		transform: none;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.witch-ambient span {
+		font-size: 13px;
+		opacity: 0.3;
+	}
+
+	.witch-item-list-page .witch-page-title::before,
+	.witch-item-list-page .witch-page-title::after {
+		font-size: 1.1rem;
+	}
+}
+
+/* ---- 全画面共通: なんでも魔女商会テーマ ---- */
+body.user,
+body.admin {
+	overflow-x: hidden;
+	background:
+		radial-gradient(circle at 15% 8%, rgba(111, 143, 78, 0.16), transparent 26%),
+		radial-gradient(circle at 88% 18%, rgba(77, 112, 54, 0.13), transparent 28%),
+		linear-gradient(180deg, #fbf7e8 0%, #f0e7c9 100%);
+	color: var(--witch-text);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", "Yu Gothic", serif;
+}
+
+body.user::before,
+body.admin::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 0.18;
+	background-image:
+		linear-gradient(45deg, rgba(90, 70, 30, 0.04) 25%, transparent 25%),
+		linear-gradient(-45deg, rgba(90, 70, 30, 0.03) 25%, transparent 25%);
+	background-size: 6px 6px;
+}
+
+body.user::after,
+body.admin::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 8% 88%, rgba(86, 126, 58, 0.18), transparent 18%),
+		radial-gradient(circle at 92% 84%, rgba(123, 143, 68, 0.13), transparent 20%),
+		linear-gradient(90deg, rgba(47, 91, 44, 0.11), transparent 12%, transparent 88%, rgba(47, 91, 44, 0.09));
+}
+
+body.user > header,
+body.admin > header,
+body.user > nav,
+body.admin > nav,
+body.user > .container,
+body.admin > .container,
+body.user > .content,
+body.admin > .content,
+body.user > footer,
+body.admin > footer {
+	position: relative;
+	z-index: 1;
+}
+
+body.user header,
+body.admin header,
+body.user .navi_area,
+body.admin .navi_area,
+body.user footer,
+body.admin footer {
+	background: transparent;
+}
+
+body.user header .container,
+body.admin header .container,
+body.user > .container,
+body.admin > .container,
+body.user .navi_menu,
+body.admin .navi_menu,
+body.user .container.content,
+body.admin .container.content {
+	width: min(1280px, calc(100% - 40px));
+}
+
+body.user header .container,
+body.admin header .container {
+	position: relative;
+	align-items: flex-start;
+	min-height: 118px;
+	padding-top: 18px;
+	isolation: isolate;
+}
+
+body.user header .container::before,
+body.admin header .container::before,
+body.user header .container::after,
+body.admin header .container::after {
+	content: "❧";
+	position: absolute;
+	top: 20px;
+	color: rgba(72, 104, 45, 0.72);
+	font-size: 64px;
+	line-height: 1;
+	pointer-events: none;
+}
+
+body.user header .container::before,
+body.admin header .container::before {
+	left: -16px;
+	transform: rotate(72deg);
+}
+
+body.user header .container::after,
+body.admin header .container::after {
+	right: 0;
+	transform: rotate(-34deg);
+}
+
+body.user .site_title,
+body.admin .site_title {
+	position: relative;
+	margin: 10px 0 0 74px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 0;
+	font-weight: 700;
+	line-height: 1.05;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+	filter: drop-shadow(0 2px 0 rgba(255, 250, 235, 0.85));
+}
+
+body.user .site_title::before,
+body.admin .site_title::before {
+	content: "なんでも\A魔女商会";
+	display: block;
+	white-space: pre;
+	font-size: 38px;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 8px;
+	text-decoration-color: rgba(137, 128, 74, 0.38);
+}
+
+body.user .site_title::after,
+body.admin .site_title::after {
+	content: "Anything Witch Shop";
+	display: block;
+	margin-top: 6px;
+	color: #5f5638;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+body.user .user_info,
+body.admin .user_info {
+	position: relative;
+	z-index: 1;
+	color: var(--witch-text);
+	font-size: 1.05rem;
+}
+
+body.user a,
+body.admin a {
+	color: var(--witch-green-deep);
+}
+
+body.user .navi_menu,
+body.admin .navi_menu {
+	display: flex;
+	gap: 14px;
+	padding: 0 0 20px;
+}
+
+body.user .navi_menu li,
+body.admin .navi_menu li {
+	width: auto;
+	flex: 1;
+}
+
+body.user .navi_menu a,
+body.admin .navi_menu a {
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	border: 2px solid var(--witch-border);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.92);
+	box-shadow:
+		inset 0 0 0 3px rgba(255, 255, 255, 0.42),
+		0 3px 8px rgba(70, 50, 20, 0.12);
+	color: var(--witch-green-deep);
+	font-weight: 700;
+	text-shadow: none;
+}
+
+body.user .navi_menu li:first-of-type a,
+body.admin .navi_menu li:first-of-type a,
+body.user .navi_menu li:last-of-type a,
+body.admin .navi_menu li:last-of-type a {
+	border-radius: 8px;
+}
+
+body.user .navi_menu a::before,
+body.admin .navi_menu a::before,
+body.user .navi_menu a::after,
+body.admin .navi_menu a::after {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-color: rgba(154, 143, 86, 0.78);
+	border-style: solid;
+	pointer-events: none;
+}
+
+body.user .navi_menu a::before,
+body.admin .navi_menu a::before {
+	top: 7px;
+	left: 8px;
+	border-width: 2px 0 0 2px;
+	border-radius: 6px 0 0 0;
+}
+
+body.user .navi_menu a::after,
+body.admin .navi_menu a::after {
+	right: 8px;
+	bottom: 7px;
+	border-width: 0 2px 2px 0;
+	border-radius: 0 0 6px 0;
+}
+
+body.user .navi_menu a:hover,
+body.admin .navi_menu a:hover,
+body.user .navi_menu a.witch-active,
+body.admin .navi_menu a.witch-active {
+	border-color: #9a8f56;
+	background: linear-gradient(180deg, var(--witch-green), var(--witch-green-deep));
+	color: #fff8df;
+	transform: translateY(-2px);
+}
+
+body.user > .container,
+body.admin > .container {
+	align-items: flex-start;
+	gap: 26px;
+	margin-top: 0;
+}
+
+body.user .main,
+body.admin .main,
+body.user .container.content,
+body.admin .container.content {
+	position: relative;
+	box-sizing: border-box;
+	padding: 26px 28px 44px;
+	border: 1.5px solid rgba(146, 130, 82, 0.7);
+	border-radius: 8px;
+	background:
+		radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 16%), rgba(255, 248, 190, 0.20), transparent 22%),
+		linear-gradient(180deg, rgba(255, 253, 242, 0.96), rgba(249, 241, 216, 0.96));
+	box-shadow:
+		inset 0 0 24px rgba(93, 79, 38, 0.08),
+		0 8px 18px rgba(65, 48, 20, 0.13);
+}
+
+body.user .container.content,
+body.admin .container.content {
+	display: flex;
+	min-height: 320px;
+	justify-content: center;
+}
+
+body.user .main::before,
+body.admin .main::before,
+body.user .container.content::before,
+body.admin .container.content::before,
+body.user .main::after,
+body.admin .main::after,
+body.user .container.content::after,
+body.admin .container.content::after {
+	content: "❧";
+	position: absolute;
+	color: rgba(101, 126, 55, 0.42);
+	font-size: 46px;
+	line-height: 1;
+	pointer-events: none;
+	text-shadow:
+		0 1px 0 rgba(255, 250, 235, 0.8),
+		0 0 12px rgba(117, 146, 79, 0.22);
+}
+
+body.user .main::before,
+body.admin .main::before,
+body.user .container.content::before,
+body.admin .container.content::before {
+	top: 10px;
+	left: 12px;
+}
+
+body.user .main::after,
+body.admin .main::after,
+body.user .container.content::after,
+body.admin .container.content::after {
+	right: 12px;
+	bottom: 10px;
+	transform: rotate(180deg);
+}
+
+body.user .main .title,
+body.admin .main .title,
+body.user .content .title,
+body.admin .content .title,
+body.user .page_title,
+body.admin .page_title {
+	display: block;
+	width: min(340px, 78%);
+	margin: 0 auto 28px;
+	padding: 14px 28px;
+	border: 1px solid #9a8f56;
+	border-radius: 8px;
+	background: linear-gradient(180deg, var(--witch-green), var(--witch-green-deep));
+	box-shadow:
+		inset 0 0 0 2px rgba(225, 208, 120, 0.28),
+		0 4px 8px rgba(40, 30, 10, 0.18);
+	color: #fff8df;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.75rem;
+	font-weight: 700;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.7);
+}
+
+body.user .main .title::before,
+body.admin .main .title::before {
+	display: none;
+}
+
+body.user aside.search,
+body.admin aside.admin_menu {
+	width: 28%;
+	min-width: 270px;
+}
+
+body.user .search_area,
+body.admin .admin_menu > div,
+body.admin .admin_menu_list {
+	position: relative;
+}
+
+body.user .search_area .title,
+body.admin .admin_menu .title,
+body.admin .admin_menu_list .title_area,
+body.admin .admin_menu_list .title_area_no_shadow {
+	border: 2px solid var(--witch-wood-deep);
+	border-bottom: 0;
+	border-radius: 8px 8px 0 0;
+	background:
+		linear-gradient(90deg, rgba(80, 50, 20, 0.08) 1px, transparent 1px),
+		linear-gradient(180deg, #b58a52, #9b7442);
+	background-size: 18px 100%, 100% 100%;
+	color: #273116;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.2rem;
+	font-weight: 700;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(245, 226, 170, 0.6);
+}
+
+body.user .search .form,
+body.admin .admin_menu .menu,
+body.admin .admin_menu_list .link_area {
+	padding: 18px 14px 20px;
+	border: 2px solid var(--witch-wood-deep);
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	background:
+		linear-gradient(90deg, rgba(80, 50, 20, 0.08) 1px, transparent 1px),
+		linear-gradient(180deg, #b58a52, #9b7442);
+	background-size: 18px 100%, 100% 100%;
+	box-shadow: 0 5px 10px rgba(55, 38, 15, 0.22);
+}
+
+body.user .search .form form {
+	display: flex;
+	gap: 10px;
+}
+
+body.user .search select,
+body.user select,
+body.admin select,
+body.user input[type=text],
+body.admin input[type=text],
+body.user input[type=password],
+body.admin input[type=password],
+body.user input[type=date],
+body.admin input[type=date],
+body.user textarea,
+body.admin textarea {
+	box-sizing: border-box;
+	padding: 8px 10px;
+	border: 1px solid rgba(64, 49, 30, 0.65);
+	border-radius: 6px;
+	background: #fffaf0;
+	color: var(--witch-text);
+	font-size: 1rem;
+	box-shadow: inset 0 1px 3px rgba(68, 48, 22, 0.1);
+}
+
+body.user .search select {
+	flex: 1;
+	width: auto;
+	min-width: 0;
+}
+
+body.user [type=submit],
+body.admin [type=submit],
+body.user [type=button],
+body.admin [type=button],
+body.user .coupon_link_button,
+body.admin .coupon_link_button {
+	border: 1px solid var(--witch-green-deep);
+	border-radius: 6px;
+	background: linear-gradient(180deg, #496f31, #294821);
+	box-shadow: 0 2px 4px rgba(53, 38, 12, 0.22);
+	color: #fff8df;
+	font-weight: 700;
+	text-shadow: none;
+}
+
+body.user [type=submit]:hover,
+body.admin [type=submit]:hover,
+body.user [type=button]:hover,
+body.admin [type=button]:hover,
+body.user .coupon_link_button:hover,
+body.admin .coupon_link_button:hover {
+	background: linear-gradient(180deg, #557b3c, #2f5427);
+	transform: translateY(-1px);
+}
+
+body.user [type=submit].delete,
+body.admin [type=submit].delete,
+body.user .delete_button,
+body.admin .delete_button {
+	border-color: #6c3a2d;
+	background: linear-gradient(180deg, #9d5b45, #6f3428);
+	color: #fff8df;
+}
+
+body.user .coupon_sidebar {
+	gap: 9px;
+	margin-top: 24px;
+}
+
+body.user .coupon_sidebar a,
+body.admin .admin_menu .display_list,
+body.admin .admin_menu_list .link_area a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	min-height: 48px;
+	padding: 10px 14px;
+	border: 1.5px solid rgba(111, 127, 53, 0.74);
+	border-radius: 8px;
+	background: rgba(232, 238, 205, 0.78);
+	box-shadow:
+		inset 0 0 0 2px rgba(255, 255, 245, 0.5),
+		0 2px 5px rgba(77, 66, 28, 0.1);
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+}
+
+body.user .coupon_sidebar a:hover,
+body.admin .admin_menu .display_list:hover,
+body.admin .admin_menu_list .link_area a:hover {
+	background: rgba(217, 229, 178, 0.9);
+	transform: translateY(-1px);
+}
+
+body.user .coupon_sidebar a::before {
+	display: inline-grid;
+	width: 38px;
+	height: 38px;
+	place-items: center;
+	flex: 0 0 38px;
+	border: 1px solid rgba(111, 127, 53, 0.55);
+	border-radius: 50%;
+	background: rgba(255, 250, 235, 0.72);
+	color: var(--witch-moss);
+	font-size: 1.15rem;
+}
+
+body.user .coupon_sidebar a:nth-child(1)::before {
+	content: "券";
+}
+
+body.user .coupon_sidebar a:nth-child(2)::before {
+	content: "晶";
+}
+
+body.user .coupon_sidebar a:nth-child(3)::before {
+	content: "♡";
+}
+
+body.user .sorted_by,
+body.admin .sorted_by,
+body.user .paging,
+body.admin .paging {
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+body.user .sorted_by a,
+body.admin .sorted_by a,
+body.user .paging a,
+body.admin .paging a {
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(47, 91, 44, 0.55);
+}
+
+body.user .list_table,
+body.admin .list_table,
+body.user .detail_table,
+body.admin .detail_table {
+	overflow: hidden;
+	margin: 24px auto 20px;
+	border: 1px solid rgba(183, 168, 117, 0.64);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.96);
+	border-collapse: separate;
+	border-spacing: 0;
+	box-shadow: 0 3px 10px rgba(65, 48, 20, 0.08);
+	color: var(--witch-text);
+}
+
+body.user .list_table th,
+body.admin .list_table th,
+body.user .detail_table th,
+body.admin .detail_table th {
+	padding: 13px 12px;
+	border-bottom: 1px solid rgba(183, 168, 117, 0.45);
+	background: linear-gradient(180deg, #557331, #365421);
+	color: #fff8df;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.02rem;
+	font-weight: 700;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.55);
+}
+
+body.user .list_table td,
+body.admin .list_table td,
+body.user .detail_table td,
+body.admin .detail_table td {
+	padding: 14px 16px;
+	border-bottom: 1px solid rgba(183, 168, 117, 0.28);
+	color: var(--witch-text);
+	font-size: 1.02rem;
+	background: rgba(255, 252, 240, 0.94);
+}
+
+body.user .list_table tr:nth-child(odd) td,
+body.admin .list_table tr:nth-child(odd) td {
+	background: rgba(229, 236, 203, 0.62);
+}
+
+body.user .list_table tr.witch-row-hover td,
+body.admin .list_table tr.witch-row-hover td,
+body.user .list_table tr:hover td,
+body.admin .list_table tr:hover td {
+	background: rgba(240, 232, 187, 0.78);
+	box-shadow: inset 0 1px 0 rgba(255, 250, 230, 0.75), inset 0 -1px 0 rgba(158, 143, 86, 0.16);
+}
+
+body.user .list_table img,
+body.admin .list_table img,
+body.user .item img,
+body.admin .item img {
+	object-fit: contain;
+	filter: drop-shadow(0 3px 2px rgba(60, 45, 20, 0.14));
+}
+
+body.user .item,
+body.admin .item,
+body.user .coupon_card,
+body.admin .coupon_card,
+body.user .related_item,
+body.admin .related_item,
+body.user .login_content,
+body.admin .login_content,
+body.user .login_form_area,
+body.admin .login_form_area,
+body.user .login_form table,
+body.admin .login_form table,
+body.user .user_info_form_area,
+body.admin .user_info_form_area,
+body.user .info_form_area,
+body.admin .info_form_area,
+body.user .coupon_payment_area,
+body.admin .coupon_payment_area,
+body.user .coupon_count,
+body.admin .coupon_count,
+body.user .gacha_panel,
+body.admin .gacha_panel {
+	border: 1.5px solid rgba(146, 130, 82, 0.62);
+	border-radius: 8px;
+	background: rgba(255, 250, 235, 0.88);
+	box-shadow:
+		inset 0 0 18px rgba(93, 79, 38, 0.07),
+		0 4px 10px rgba(65, 48, 20, 0.11);
+}
+
+body.user .login_content,
+body.admin .login_content,
+body.user .login_form_area,
+body.admin .login_form_area,
+body.user .login_form table {
+	margin: 0 auto;
+	padding: 18px 22px;
+}
+
+body.user .login_form table,
+body.admin .login_form table {
+	width: min(460px, 100%);
+	background:
+		radial-gradient(circle at 20% 10%, rgba(255, 248, 204, 0.35), transparent 32%),
+		rgba(255, 250, 235, 0.88);
+}
+
+body.user .login_form th,
+body.admin .login_form th,
+body.user .login_form td,
+body.admin .login_form td {
+	background: transparent;
+}
+
+body.user .user_info_form_area,
+body.admin .user_info_form_area,
+body.user .info_form_area,
+body.admin .info_form_area {
+	width: min(760px, 100%);
+	margin: 30px auto 0;
+	padding: 20px 24px;
+}
+
+body.user .item .item_name,
+body.admin .item .item_name,
+body.user .related_item_name,
+body.admin .related_item_name,
+body.user .witch-product-name-link,
+body.admin .witch-product-name-link {
+	color: var(--witch-green-deep);
+	font-weight: 700;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(47, 91, 44, 0.55);
+}
+
+body.user .item .description,
+body.admin .item .description,
+body.user .related_item_price,
+body.admin .related_item_price,
+body.user .input_value,
+body.admin .input_value {
+	color: var(--witch-text);
+}
+
+body.user .related_items_title,
+body.admin .related_items_title,
+body.user .login_history_title,
+body.admin .login_history_title,
+body.user .delivery_address_title,
+body.admin .delivery_address_title {
+	border-bottom: 2px solid var(--witch-moss);
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+body.user .address_select_list,
+body.admin .address_select_list {
+	display: grid;
+	gap: 12px;
+	margin: 0 0 18px;
+	padding: 0;
+}
+
+body.user .address_select_list li,
+body.admin .address_select_list li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body.user .address_select_list label,
+body.admin .address_select_list label {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 12px 14px;
+	border: 1px solid rgba(146, 130, 82, 0.42);
+	border-radius: 8px;
+	background: rgba(255, 253, 244, 0.72);
+	box-shadow: inset 0 0 12px rgba(93, 79, 38, 0.05);
+	cursor: pointer;
+}
+
+body.user .address_select_list label:hover,
+body.admin .address_select_list label:hover {
+	border-color: var(--witch-moss);
+	background: rgba(255, 250, 225, 0.94);
+}
+
+body.user .address_select_list input[type="radio"],
+body.admin .address_select_list input[type="radio"] {
+	flex: 0 0 auto;
+	margin-top: 3px;
+}
+
+body.user .coupon_rate,
+body.admin .coupon_rate {
+	background: linear-gradient(180deg, #557331, #365421);
+	color: #fff8df;
+}
+
+body.user .coupon_message,
+body.admin .coupon_message,
+body.user .complete_message,
+body.admin .complete_message,
+body.user .check_message,
+body.admin .check_message,
+body.user .input_message,
+body.admin .input_message,
+body.user .description,
+body.admin .description {
+	color: var(--witch-green-deep);
+}
+
+body.user footer,
+body.admin footer {
+	color: rgba(47, 42, 32, 0.72);
+}
+
+body.user small,
+body.admin small {
+	text-shadow: 0 1px 0 rgba(255, 250, 235, 0.75);
+}
+
+body.user .witch-ambient,
+body.admin .witch-ambient {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+body.user .witch-ambient span,
+body.admin .witch-ambient span {
+	position: absolute;
+	left: 9%;
+	top: 21%;
+	color: rgba(95, 126, 62, 0.26);
+	font-size: 14px;
+	animation: witch-float 9s ease-in-out infinite;
+	animation-delay: calc(var(--i) * -1.35s);
+}
+
+body.user .witch-ambient span:nth-child(2),
+body.admin .witch-ambient span:nth-child(2) {
+	left: 23%;
+	top: 54%;
+	font-size: 20px;
+}
+
+body.user .witch-ambient span:nth-child(3),
+body.admin .witch-ambient span:nth-child(3) {
+	left: 38%;
+	top: 28%;
+	font-size: 24px;
+}
+
+body.user .witch-ambient span:nth-child(4),
+body.admin .witch-ambient span:nth-child(4) {
+	left: 56%;
+	top: 66%;
+	font-size: 16px;
+}
+
+body.user .witch-ambient span:nth-child(5),
+body.admin .witch-ambient span:nth-child(5) {
+	left: 72%;
+	top: 20%;
+	font-size: 22px;
+}
+
+body.user .witch-ambient span:nth-child(6),
+body.admin .witch-ambient span:nth-child(6) {
+	left: 86%;
+	top: 48%;
+	font-size: 18px;
+}
+
+body.user .witch-ambient span:nth-child(7),
+body.admin .witch-ambient span:nth-child(7) {
+	left: 67%;
+	top: 82%;
+	font-size: 15px;
+}
+
+@media screen and (max-width: 900px) {
+	body.user header .container,
+	body.admin header .container,
+	body.user > .container,
+	body.admin > .container,
+	body.user .navi_menu,
+	body.admin .navi_menu,
+	body.user .container.content,
+	body.admin .container.content {
+		width: calc(100% - 24px);
+	}
+
+	body.user header .container,
+	body.admin header .container,
+	body.user > .container,
+	body.admin > .container {
+		flex-direction: column;
+	}
+
+	body.user .navi_menu,
+	body.admin .navi_menu {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+
+	body.user aside.search,
+	body.admin aside.admin_menu,
+	body.user .main,
+	body.admin .main {
+		width: 100%;
+		min-width: 0;
+	}
+
+	body.user .coupon_sidebar,
+	body.admin .coupon_sidebar {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 560px) {
+	body.user header .container::before,
+	body.admin header .container::before,
+	body.user header .container::after,
+	body.admin header .container::after {
+		top: 28px;
+		font-size: 48px;
+	}
+
+	body.user header .container::before,
+	body.admin header .container::before {
+		left: 0;
+	}
+
+	body.user header .container::after,
+	body.admin header .container::after {
+		right: 20px;
+	}
+
+	body.user .site_title,
+	body.admin .site_title {
+		margin-left: 46px;
+	}
+
+	body.user .site_title::before,
+	body.admin .site_title::before {
+		font-size: 30px;
+	}
+
+	body.user .main,
+	body.admin .main,
+	body.user .container.content,
+	body.admin .container.content {
+		padding: 22px 12px 36px;
+	}
+
+	body.user .main .title,
+	body.admin .main .title,
+	body.user .content .title,
+	body.admin .content .title,
+	body.user .page_title,
+	body.admin .page_title {
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 1.45rem;
+	}
+
+	body.user .search .form form,
+	body.admin .search .form form,
+	body.user .coupon_sidebar,
+	body.admin .coupon_sidebar {
+		grid-template-columns: 1fr;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	body.user .list_table,
+	body.admin .list_table {
+		table-layout: fixed;
+		font-size: 0.9rem;
+	}
+
+	body.user .list_table td,
+	body.admin .list_table td,
+	body.user .list_table th,
+	body.admin .list_table th {
+		padding: 10px 4px;
+		overflow-wrap: anywhere;
+	}
+}
+
+/* ---- Fairy magic refinement: coupon gacha and login ---- */
+body.user .witch-ambient span,
+body.admin .witch-ambient span,
+body:has(.login_spell_page) .witch-ambient span {
+	filter: drop-shadow(0 0 7px rgba(246, 216, 118, 0.38));
+}
+
+body.user .witch-ambient span:nth-child(8),
+body.admin .witch-ambient span:nth-child(8),
+body:has(.login_spell_page) .witch-ambient span:nth-child(8) {
+	left: 14%;
+	top: 78%;
+	font-size: 17px;
+}
+
+body.user .witch-ambient span:nth-child(9),
+body.admin .witch-ambient span:nth-child(9),
+body:has(.login_spell_page) .witch-ambient span:nth-child(9) {
+	left: 48%;
+	top: 12%;
+	font-size: 13px;
+}
+
+body.user .witch-ambient span:nth-child(10),
+body.admin .witch-ambient span:nth-child(10),
+body:has(.login_spell_page) .witch-ambient span:nth-child(10) {
+	left: 91%;
+	top: 73%;
+	font-size: 19px;
+}
+
+body.user:has(.coupon_gacha_page) .main {
+	overflow: visible;
+}
+
+body.user:has(.coupon_gacha_page) .coupon_page {
+	position: relative;
+}
+
+body.user:has(.coupon_gacha_page) .coupon_lead {
+	max-width: 720px;
+	margin: 16px auto 26px;
+	padding: 10px 18px;
+	border: 1px solid rgba(177, 151, 82, 0.42);
+	border-radius: 999px;
+	background: rgba(255, 251, 228, 0.62);
+	text-align: center;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_panel {
+	display: grid;
+	grid-template-columns: minmax(310px, 430px) minmax(280px, 1fr);
+	gap: clamp(24px, 5vw, 58px);
+	align-items: center;
+	margin: 34px auto;
+	padding: clamp(20px, 4vw, 42px);
+	border: 1px solid rgba(157, 128, 58, 0.44);
+	border-radius: 26px 8px 26px 8px;
+	background:
+		radial-gradient(circle at 20% 0%, rgba(255, 246, 192, 0.9), transparent 34%),
+		radial-gradient(circle at 84% 100%, rgba(181, 205, 136, 0.55), transparent 38%),
+		linear-gradient(135deg, rgba(255, 253, 238, 0.94), rgba(242, 235, 197, 0.84));
+	box-shadow:
+		0 24px 42px rgba(54, 61, 34, 0.14),
+		inset 0 0 0 7px rgba(255, 255, 255, 0.24);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_panel::before,
+body.user:has(.coupon_gacha_page) .gacha_panel::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_stage {
+	position: relative;
+	display: grid;
+	justify-items: center;
+	gap: 16px;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_stage::before {
+	content: "";
+	position: absolute;
+	inset: 8% -8% auto auto;
+	width: 42%;
+	height: 42%;
+	border-radius: 999px;
+	background: radial-gradient(circle, rgba(255, 235, 139, 0.28), transparent 70%);
+	filter: blur(3px);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_wheel {
+	position: relative;
+	width: min(380px, 72vw);
+	height: min(380px, 72vw);
+	border: 0;
+	border-radius: 50%;
+	background:
+		radial-gradient(circle at 50% 50%, rgba(255, 252, 226, 0.98) 0 22%, transparent 22.5%),
+		conic-gradient(from -45deg,
+			#f0c96e 0 25%,
+			#7ea853 25% 50%,
+			#244d30 50% 75%,
+			#d7e7b7 75% 100%);
+	box-shadow:
+		0 0 0 10px #f8edbd,
+		0 0 0 13px rgba(82, 112, 45, 0.78),
+		0 22px 44px rgba(42, 62, 31, 0.24),
+		inset 0 0 38px rgba(56, 42, 23, 0.25);
+	isolation: isolate;
+	transform: translateZ(0);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_wheel::before {
+	content: "";
+	position: absolute;
+	inset: 5.8%;
+	border: 2px dashed rgba(255, 248, 207, 0.75);
+	border-radius: inherit;
+	box-shadow: inset 0 0 28px rgba(255, 248, 207, 0.35);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_wheel::after {
+	content: "";
+	position: absolute;
+	inset: -18px;
+	border-radius: inherit;
+	background:
+		radial-gradient(circle at 50% 0%, rgba(255, 237, 128, 0.42), transparent 12%),
+		radial-gradient(circle at 100% 50%, rgba(255, 237, 128, 0.34), transparent 12%),
+		radial-gradient(circle at 50% 100%, rgba(255, 237, 128, 0.34), transparent 12%),
+		radial-gradient(circle at 0% 50%, rgba(255, 237, 128, 0.34), transparent 12%);
+	z-index: -1;
+	opacity: 0.8;
+	animation: witch-ring-breathe 3.6s ease-in-out infinite;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_pointer {
+	position: absolute;
+	top: -22px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border-right: 18px solid transparent;
+	border-left: 18px solid transparent;
+	border-top: 0;
+	border-bottom: 34px solid #254b2e;
+	filter: drop-shadow(0 5px 4px rgba(38, 42, 25, 0.25));
+	transform: translateX(-50%);
+	z-index: 5;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_lights {
+	position: absolute;
+	inset: -8px;
+	border-radius: inherit;
+	z-index: 4;
+	pointer-events: none;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_lights span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 10px;
+	height: 10px;
+	margin: -5px;
+	border-radius: 50%;
+	background: #fff0a4;
+	box-shadow: 0 0 10px rgba(255, 233, 122, 0.88);
+	transform: rotate(calc(var(--light-index) * 30deg)) translateY(calc(-1 * min(201px, 38vw)));
+}
+
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(1) { --light-index: 0; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(2) { --light-index: 1; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(3) { --light-index: 2; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(4) { --light-index: 3; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(5) { --light-index: 4; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(6) { --light-index: 5; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(7) { --light-index: 6; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(8) { --light-index: 7; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(9) { --light-index: 8; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(10) { --light-index: 9; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(11) { --light-index: 10; }
+body.user:has(.coupon_gacha_page) .gacha_lights span:nth-child(12) { --light-index: 11; }
+
+body.user:has(.coupon_gacha_page) .gacha_segment {
+	position: absolute;
+	display: grid;
+	gap: 3px;
+	place-items: center;
+	width: 112px;
+	min-height: 74px;
+	padding: 9px 10px;
+	border: 1px solid rgba(255, 251, 222, 0.72);
+	border-radius: 18px 6px 18px 6px;
+	background: rgba(255, 249, 218, 0.22);
+	color: #fff8de;
+	text-align: center;
+	text-shadow: 0 2px 3px rgba(21, 30, 17, 0.48);
+	box-shadow: inset 0 0 16px rgba(255, 251, 222, 0.16);
+	transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+	z-index: 3;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_segment strong {
+	display: block;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.55rem;
+	line-height: 1;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_segment small {
+	font-size: 0.74rem;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+body.user:has(.coupon_gacha_page) .segment-15 {
+	top: 12%;
+	left: 50%;
+	color: #3d3314;
+	text-shadow: 0 1px 0 rgba(255, 248, 208, 0.74);
+	transform: translateX(-50%);
+}
+
+body.user:has(.coupon_gacha_page) .segment-10 {
+	top: 50%;
+	right: 9%;
+	transform: translateY(-50%);
+}
+
+body.user:has(.coupon_gacha_page) .segment-5 {
+	bottom: 12%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+body.user:has(.coupon_gacha_page) .segment-miss {
+	top: 50%;
+	left: 9%;
+	color: #33451f;
+	text-shadow: 0 1px 0 rgba(255, 255, 230, 0.62);
+	transform: translateY(-50%);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_segment.is-lit,
+body.user:has(.coupon_gacha_page) .gacha_segment.is-final {
+	background: rgba(255, 247, 177, 0.82);
+	color: #263419;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+	box-shadow:
+		0 0 0 3px rgba(255, 239, 132, 0.75),
+		0 0 28px rgba(255, 223, 95, 0.82),
+		inset 0 0 18px rgba(255, 255, 255, 0.58);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_segment.is-final {
+	transform: translateY(-50%) scale(1.08);
+}
+
+body.user:has(.coupon_gacha_page) .segment-15.is-final,
+body.user:has(.coupon_gacha_page) .segment-5.is-final {
+	transform: translateX(-50%) scale(1.08);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_wheel.is-spinning .gacha_lights span {
+	animation: witch-light-chase 640ms linear infinite;
+	animation-delay: calc(var(--light-index) * 44ms);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_wheel.has-result .gacha_lights span {
+	animation: witch-light-chase 1.2s linear infinite;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_core {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	place-items: center;
+	width: 116px;
+	height: 116px;
+	border: 2px solid rgba(107, 84, 34, 0.58);
+	border-radius: 50%;
+	background:
+		radial-gradient(circle at 38% 24%, #fff8cf 0 18%, transparent 19%),
+		linear-gradient(145deg, #f5d987, #fff6ce 52%, #b8c57a);
+	color: #274828;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.05rem;
+	font-weight: 800;
+	line-height: 1.16;
+	text-align: center;
+	text-transform: uppercase;
+	box-shadow:
+		0 8px 18px rgba(30, 42, 22, 0.28),
+		inset 0 -8px 18px rgba(121, 105, 44, 0.18);
+	transform: translate(-50%, -50%);
+	z-index: 6;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_hint {
+	max-width: 340px;
+	margin: 0;
+	color: rgba(47, 42, 32, 0.72);
+	font-size: 0.86rem;
+	text-align: center;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_status {
+	position: relative;
+	padding: clamp(18px, 4vw, 30px);
+	border: 1px solid rgba(91, 118, 51, 0.34);
+	border-radius: 8px;
+	background:
+		linear-gradient(180deg, rgba(255, 252, 232, 0.94), rgba(238, 241, 202, 0.86));
+	box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.22);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_status::before {
+	content: "\2767";
+	position: absolute;
+	top: -25px;
+	right: 22px;
+	color: rgba(75, 102, 43, 0.7);
+	font-size: 44px;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_status h3 {
+	margin: 0 0 16px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_status p {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 12px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed rgba(117, 103, 54, 0.28);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_status strong,
+body.user:has(.coupon_gacha_page) .gacha_status time {
+	color: #264a2c;
+	font-weight: 800;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_button {
+	position: relative;
+	width: 100%;
+	margin-top: 18px;
+	padding: 16px 26px;
+	border: 1px solid rgba(34, 72, 42, 0.6);
+	border-radius: 999px;
+	background:
+		linear-gradient(180deg, #fff2aa, #d9b24b 48%, #314f25 49%, #24431f);
+	color: #fff9dc;
+	font-size: 1.12rem;
+	font-weight: 800;
+	letter-spacing: 0;
+	text-shadow: 0 2px 3px rgba(18, 30, 17, 0.46);
+	box-shadow:
+		0 14px 22px rgba(45, 65, 29, 0.22),
+		inset 0 1px 0 rgba(255, 255, 255, 0.64);
+	cursor: pointer;
+	overflow: hidden;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_button::after {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 -45%;
+	width: 38%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.44), transparent);
+	transform: skewX(-18deg);
+	transition: left 480ms ease;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_button:hover::after,
+body.user:has(.coupon_gacha_page) .gacha_button.is-drawing::after {
+	left: 110%;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_button:disabled {
+	background: linear-gradient(180deg, #ded8bd, #a7aa8b);
+	color: rgba(42, 48, 31, 0.72);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+	cursor: not-allowed;
+	text-shadow: none;
+}
+
+body.user:has(.coupon_gacha_page) .coupon_limit_note {
+	display: block;
+	margin-top: 14px;
+	border: 0;
+	color: #81401f;
+	font-weight: 700;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_lineup {
+	margin-top: 34px;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_lineup h3 {
+	margin: 0 0 16px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.55rem;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_source {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_modal {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 220ms ease, visibility 220ms ease;
+	z-index: 1000;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_modal.is-open {
+	visibility: visible;
+	opacity: 1;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_backdrop {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle at 50% 38%, rgba(255, 236, 144, 0.26), transparent 32%),
+		rgba(20, 31, 18, 0.54);
+	backdrop-filter: blur(5px);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_dialog {
+	position: relative;
+	width: min(420px, 100%);
+	padding: 42px 32px 30px;
+	border: 1px solid rgba(193, 164, 82, 0.62);
+	border-radius: 26px 8px 26px 8px;
+	background:
+		radial-gradient(circle at 50% 0%, rgba(255, 243, 166, 0.85), transparent 38%),
+		linear-gradient(180deg, #fffbed, #eee9bd);
+	color: #2e2a20;
+	text-align: center;
+	box-shadow:
+		0 28px 60px rgba(13, 24, 12, 0.34),
+		inset 0 0 0 7px rgba(255, 255, 255, 0.22);
+	transform: translateY(12px) scale(0.98);
+	transition: transform 260ms ease;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_modal.is-open .gacha_result_dialog {
+	transform: translateY(0) scale(1);
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_close {
+	position: absolute;
+	top: 12px;
+	right: 14px;
+	width: 34px;
+	height: 34px;
+	border: 1px solid rgba(74, 91, 45, 0.34);
+	border-radius: 50%;
+	background: rgba(255, 252, 231, 0.82);
+	color: #2d4b27;
+	font-size: 1.4rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_sigil {
+	width: 86px;
+	height: 86px;
+	margin: 0 auto 12px;
+	border-radius: 50%;
+	background:
+		radial-gradient(circle, #fff8c5 0 18%, transparent 19%),
+		conic-gradient(from 0deg, #d5b557, #5b7a37, #f1d886, #2d562f, #d5b557);
+	box-shadow:
+		0 0 0 6px rgba(255, 246, 190, 0.55),
+		0 0 28px rgba(230, 198, 91, 0.68);
+	animation: witch-sigil-turn 9s linear infinite;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_dialog h3 {
+	margin: 0 0 12px;
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.7rem;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_dialog p {
+	margin: 0 0 22px;
+	font-size: 1.08rem;
+	font-weight: 700;
+	line-height: 1.65;
+}
+
+body.user:has(.coupon_gacha_page) .gacha_result_dialog.miss .gacha_result_sigil,
+body.user:has(.coupon_gacha_page) .gacha_result_dialog.info .gacha_result_sigil,
+body.user:has(.coupon_gacha_page) .gacha_result_dialog.limit .gacha_result_sigil {
+	background:
+		radial-gradient(circle, #fff8c5 0 18%, transparent 19%),
+		conic-gradient(from 0deg, #b7c782, #6f8c4e, #efe9b8, #8f9a63, #b7c782);
+	box-shadow:
+		0 0 0 6px rgba(236, 241, 193, 0.48),
+		0 0 22px rgba(120, 148, 84, 0.45);
+}
+
+body.user:has(.coupon_gacha_page) .coupon_actions {
+	justify-content: center;
+}
+
+body:has(.login_spell_page) {
+	min-height: 100vh;
+	overflow-x: hidden;
+	background:
+		radial-gradient(circle at 14% 18%, rgba(255, 238, 153, 0.34), transparent 24%),
+		radial-gradient(circle at 86% 10%, rgba(113, 146, 77, 0.28), transparent 28%),
+		linear-gradient(135deg, #f7efd4 0%, #fbf7e8 42%, #e6ebc8 100%);
+	color: #2f2a20;
+}
+
+body:has(.login_spell_page)::before,
+body:has(.login_spell_page)::after {
+	content: "\2767";
+	position: fixed;
+	z-index: 0;
+	color: rgba(79, 103, 50, 0.28);
+	font-size: clamp(82px, 14vw, 190px);
+	pointer-events: none;
+}
+
+body:has(.login_spell_page)::before {
+	top: 6vh;
+	left: 4vw;
+	transform: rotate(-18deg);
+}
+
+body:has(.login_spell_page)::after {
+	right: 4vw;
+	bottom: 5vh;
+	transform: rotate(156deg);
+}
+
+body:has(.login_spell_page) > .container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	min-height: calc(100vh - 74px);
+	display: grid;
+	place-items: center;
+	padding: 34px 20px;
+	box-sizing: border-box;
+}
+
+body:has(.login_spell_page) article.container.content {
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+body.user:has(.login_spell_page) header .container::before,
+body.user:has(.login_spell_page) header .container::after {
+	display: none !important;
+}
+
+body:has(.login_spell_page) .login_spell_page {
+	position: relative;
+	width: min(520px, 100%);
+	margin: 0 auto;
+}
+
+body:has(.login_spell_page) .login_spell_page::before {
+	content: "";
+	position: absolute;
+	inset: -42px -62px auto auto;
+	width: 156px;
+	height: 156px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(255, 237, 131, 0.34), transparent 68%);
+	filter: blur(2px);
+}
+
+body:has(.login_spell_page) .login_spell_panel {
+	position: relative;
+	padding: clamp(28px, 6vw, 46px);
+	border: 1px solid rgba(159, 132, 61, 0.48);
+	border-radius: 30px 10px 30px 10px;
+	background:
+		linear-gradient(90deg, rgba(104, 86, 38, 0.08) 1px, transparent 1px) 0 0 / 34px 34px,
+		radial-gradient(circle at 22% 4%, rgba(255, 248, 197, 0.78), transparent 38%),
+		linear-gradient(180deg, rgba(255, 252, 236, 0.96), rgba(238, 234, 198, 0.92));
+	box-shadow:
+		0 24px 56px rgba(58, 69, 37, 0.18),
+		inset 0 0 0 7px rgba(255, 255, 255, 0.24);
+	overflow: hidden;
+}
+
+body:has(.login_spell_page) .login_spell_panel::before,
+body:has(.login_spell_page) .login_spell_panel::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+}
+
+body:has(.login_spell_page) .login_spell_panel::before {
+	inset: 14px;
+	border: 1px solid rgba(169, 145, 75, 0.26);
+	border-radius: 22px 7px 22px 7px;
+}
+
+body:has(.login_spell_page) .login_spell_panel::after {
+	right: -42px;
+	bottom: -34px;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(96, 126, 62, 0.24), transparent 68%);
+}
+
+body:has(.login_spell_page) .login_spell_brand {
+	position: relative;
+	display: grid;
+	justify-items: center;
+	gap: 4px;
+	margin-bottom: 18px;
+	text-align: center;
+	z-index: 1;
+}
+
+body:has(.login_spell_page) .login_hat {
+	position: relative;
+	display: block;
+	width: 54px;
+	height: 42px;
+	margin-bottom: 2px;
+}
+
+body:has(.login_spell_page) .login_hat::before {
+	content: "";
+	position: absolute;
+	left: 15px;
+	bottom: 10px;
+	width: 26px;
+	height: 36px;
+	border-radius: 80% 10% 60% 10%;
+	background: linear-gradient(135deg, #244a2d, #5a753b);
+	box-shadow: inset -4px -4px 0 rgba(17, 37, 22, 0.24);
+	transform: rotate(14deg) skewX(-8deg);
+}
+
+body:has(.login_spell_page) .login_hat::after {
+	content: "";
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+	width: 50px;
+	height: 14px;
+	border-radius: 50%;
+	background: linear-gradient(90deg, #1e3e26, #6f8d46);
+	box-shadow: 0 4px 8px rgba(34, 47, 24, 0.22);
+}
+
+body:has(.login_spell_page) .login_shop_name {
+	margin: 0;
+	color: #243f25;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: clamp(1.45rem, 5vw, 2.05rem);
+	font-weight: 800;
+	line-height: 1.08;
+}
+
+body:has(.login_spell_page) .login_spell_brand small {
+	color: rgba(47, 42, 32, 0.64);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 0.92rem;
+	font-style: italic;
+}
+
+body:has(.login_spell_page) .page_title {
+	position: relative;
+	width: auto;
+	margin: 6px auto 10px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #2b4d2b;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: clamp(1.55rem, 5vw, 2.2rem);
+	text-align: center;
+	box-shadow: none;
+	z-index: 1;
+}
+
+body:has(.login_spell_page) .description {
+	position: relative;
+	margin: 0 auto 24px;
+	color: rgba(48, 43, 32, 0.76);
+	text-align: center;
+	z-index: 1;
+}
+
+body:has(.login_spell_page) .login_spell_form {
+	position: relative;
+	display: grid;
+	gap: 18px;
+	width: 100%;
+	margin: 0;
+	z-index: 1;
+}
+
+body:has(.login_spell_page) .login_fields {
+	display: grid;
+	gap: 14px;
+}
+
+body:has(.login_spell_page) .login_field {
+	display: grid;
+	gap: 7px;
+	color: #2b4a2b;
+	font-weight: 800;
+}
+
+body:has(.login_spell_page) .login_field span {
+	font-size: 0.92rem;
+}
+
+body:has(.login_spell_page) .login_field input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 14px 16px;
+	border: 1px solid rgba(91, 111, 54, 0.38);
+	border-radius: 999px;
+	background: rgba(255, 252, 235, 0.88);
+	color: #2f2a20;
+	font-size: 1rem;
+	box-shadow:
+		inset 0 2px 6px rgba(78, 61, 26, 0.08),
+		0 1px 0 rgba(255, 255, 255, 0.74);
+	outline: none;
+	transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+body:has(.login_spell_page) .login_field input:focus {
+	border-color: rgba(47, 91, 44, 0.72);
+	box-shadow:
+		0 0 0 4px rgba(210, 183, 89, 0.22),
+		inset 0 2px 6px rgba(78, 61, 26, 0.08);
+	transform: translateY(-1px);
+}
+
+body:has(.login_spell_page) .login_actions {
+	display: grid;
+	gap: 12px;
+	margin-top: 6px;
+}
+
+body:has(.login_spell_page) .login_actions input[type="submit"] {
+	width: 100%;
+	padding: 14px 22px;
+	border: 1px solid rgba(41, 70, 33, 0.58);
+	border-radius: 999px;
+	background: linear-gradient(180deg, #477037, #203f25);
+	color: #fff8dc;
+	font-size: 1.05rem;
+	font-weight: 800;
+	letter-spacing: 0;
+	text-shadow: 0 2px 3px rgba(12, 22, 12, 0.4);
+	box-shadow:
+		0 14px 24px rgba(47, 74, 36, 0.22),
+		inset 0 1px 0 rgba(255, 255, 255, 0.35);
+	cursor: pointer;
+}
+
+body:has(.login_spell_page) .login_actions input[type="submit"]:hover {
+	background: linear-gradient(180deg, #557d43, #25492b);
+	transform: translateY(-1px);
+}
+
+body:has(.login_spell_page) .login_back_link {
+	color: #39572e;
+	font-weight: 800;
+	text-align: center;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(57, 87, 46, 0.48);
+	justify-self: center;
+}
+
+body:has(.login_spell_page) .error_list {
+	margin: 0;
+	padding: 12px 14px;
+	border: 1px solid rgba(168, 75, 45, 0.35);
+	border-radius: 10px;
+	background: rgba(255, 241, 218, 0.82);
+	color: #8a351d;
+}
+
+body:has(.login_spell_page) .error_list ul {
+	margin: 0;
+	padding-left: 18px;
+}
+
+@keyframes witch-ring-breathe {
+	0%, 100% {
+		transform: scale(0.98);
+		opacity: 0.62;
+	}
+	50% {
+		transform: scale(1.04);
+		opacity: 0.96;
+	}
+}
+
+@keyframes witch-light-chase {
+	0%, 100% {
+		opacity: 0.42;
+		transform: rotate(calc(var(--light-index) * 30deg)) translateY(calc(-1 * min(201px, 38vw))) scale(0.82);
+	}
+	46% {
+		opacity: 1;
+		transform: rotate(calc(var(--light-index) * 30deg)) translateY(calc(-1 * min(201px, 38vw))) scale(1.35);
+	}
+}
+
+@keyframes witch-sigil-turn {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.user:has(.coupon_gacha_page) .gacha_wheel::after,
+	body.user:has(.coupon_gacha_page) .gacha_wheel.is-spinning .gacha_lights span,
+	body.user:has(.coupon_gacha_page) .gacha_wheel.has-result .gacha_lights span,
+	body.user:has(.coupon_gacha_page) .gacha_result_sigil {
+		animation: none;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	body.user:has(.coupon_gacha_page) .gacha_panel {
+		grid-template-columns: 1fr;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_status {
+		width: min(520px, 100%);
+		box-sizing: border-box;
+		justify-self: center;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	body.user:has(.coupon_gacha_page) .coupon_lead {
+		border-radius: 12px;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_panel {
+		padding: 18px 12px 24px;
+		border-radius: 18px 6px 18px 6px;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_wheel {
+		width: min(318px, 82vw);
+		height: min(318px, 82vw);
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_segment {
+		width: 92px;
+		min-height: 60px;
+		padding: 7px;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_segment strong {
+		font-size: 1.15rem;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_segment small {
+		font-size: 0.64rem;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_core {
+		width: 90px;
+		height: 90px;
+		font-size: 0.82rem;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_status p {
+		display: block;
+	}
+
+	body.user:has(.coupon_gacha_page) .gacha_result_dialog {
+		padding: 38px 20px 26px;
+	}
+
+	body:has(.login_spell_page) > .container {
+		min-height: calc(100vh - 56px);
+		padding: 18px 12px;
+	}
+
+	body:has(.login_spell_page)::before,
+	body:has(.login_spell_page)::after {
+		display: none;
+	}
+
+	body:has(.login_spell_page) .login_spell_panel {
+		padding: 26px 18px 24px;
+	}
+
+	body:has(.login_spell_page) .login_spell_page::before,
+	body:has(.login_spell_page) .login_spell_panel::after {
+		display: none;
+	}
+}
+
+/* ---- Product reviews ---- */
+body.user .item_review,
+body.admin .item_review {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 7px;
+	color: rgba(47, 42, 32, 0.76);
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+body.user .item_review.compact,
+body.admin .item_review.compact {
+	margin-top: 8px;
+	font-size: 0.82rem;
+}
+
+body.user .star_rating,
+body.admin .star_rating,
+body.user .review_rating,
+body.admin .review_rating {
+	color: #b57a19;
+	font-weight: 900;
+	text-shadow: 0 1px 0 rgba(255, 248, 219, 0.8);
+}
+
+body.user .rating_value,
+body.admin .rating_value {
+	color: var(--witch-green-deep);
+	font-weight: 900;
+}
+
+body.user .review_count,
+body.admin .review_count,
+body.user .no_review,
+body.admin .no_review {
+	color: rgba(47, 42, 32, 0.58);
+}
+
+body.user .review_area,
+body.admin .review_area {
+	margin: 34px auto 4px;
+	padding: 22px;
+	border: 1.5px solid rgba(146, 130, 82, 0.56);
+	border-radius: 8px;
+	background:
+		linear-gradient(180deg, rgba(255, 253, 241, 0.92), rgba(250, 241, 211, 0.86)),
+		rgba(255, 250, 235, 0.88);
+	box-shadow:
+		inset 0 0 18px rgba(93, 79, 38, 0.07),
+		0 4px 10px rgba(65, 48, 20, 0.1);
+}
+
+body.user .review_area > .title,
+body.admin .review_area > .title {
+	margin: 0 0 14px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid var(--witch-moss);
+	color: var(--witch-green-deep);
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+body.user .review_sort_area,
+body.admin .review_sort_area {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 18px;
+	color: rgba(47, 42, 32, 0.72);
+	font-weight: 800;
+}
+
+body.user .review_sort_area a,
+body.admin .review_sort_area a,
+body.user .review_sort_area span,
+body.admin .review_sort_area span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 4px 12px;
+	border: 1px solid rgba(91, 111, 54, 0.36);
+	border-radius: 999px;
+	background: rgba(255, 252, 235, 0.78);
+	color: var(--witch-green-deep);
+	text-decoration: none;
+}
+
+body.user .review_sort_area span,
+body.admin .review_sort_area span {
+	background: linear-gradient(180deg, #557331, #365421);
+	color: #fff8df;
+	box-shadow: 0 8px 14px rgba(47, 74, 36, 0.18);
+}
+
+body.user .review_item,
+body.admin .review_item {
+	position: relative;
+	margin: 14px 0 0;
+	padding: 16px 18px;
+	border: 1px solid rgba(146, 130, 82, 0.34);
+	border-radius: 8px;
+	background: rgba(255, 253, 244, 0.74);
+}
+
+body.user .review_item hr,
+body.admin .review_item hr {
+	display: none;
+}
+
+body.user .review_header,
+body.admin .review_header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+body.user .review_user,
+body.admin .review_user {
+	color: var(--witch-green-deep);
+	font-weight: 900;
+}
+
+body.user .review_date,
+body.admin .review_date {
+	margin-left: auto;
+	color: rgba(47, 42, 32, 0.56);
+	font-size: 0.86rem;
+}
+
+body.user .review_comment p,
+body.admin .review_comment p {
+	margin: 0;
+	color: var(--witch-text);
+	line-height: 1.8;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+body.user .review_action,
+body.admin .review_action {
+	margin-top: 12px;
+	text-align: right;
+}
+
+body.user .review_link,
+body.admin .review_link {
+	display: inline-flex;
+	align-items: center;
+	margin-top: 8px;
+	padding: 5px 12px;
+	border: 1px solid rgba(91, 111, 54, 0.42);
+	border-radius: 999px;
+	background: rgba(255, 252, 235, 0.8);
+	color: var(--witch-green-deep);
+	font-size: 0.86rem;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+body.user .review_link:hover,
+body.admin .review_link:hover {
+	background: rgba(255, 247, 216, 0.96);
+	border-color: var(--witch-moss);
+}
+
+body.user.review_regist_page .info_form_area,
+body.admin.review_regist_page .info_form_area {
+	width: min(720px, 100%);
+}
+
+body.user .review_form,
+body.admin .review_form {
+	display: grid;
+	gap: 16px;
+	margin-top: 18px;
+}
+
+body.user .review_input_table,
+body.admin .review_input_table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 12px;
+}
+
+body.user .review_input_table th,
+body.admin .review_input_table th {
+	width: 120px;
+	padding: 12px 14px;
+	color: var(--witch-green-deep);
+	text-align: left;
+	vertical-align: top;
+}
+
+body.user .review_input_table td,
+body.admin .review_input_table td {
+	padding: 10px 0;
+}
+
+body.user .review_input_table input[type="radio"],
+body.admin .review_input_table input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+body.user .review_input_table input[type="radio"] + label,
+body.admin .review_input_table input[type="radio"] + label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	margin-right: 6px;
+	border: 1px solid rgba(146, 130, 82, 0.42);
+	border-radius: 50%;
+	background: rgba(255, 253, 244, 0.86);
+	color: rgba(86, 72, 36, 0.45);
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: transform 150ms ease, color 150ms ease, background 150ms ease;
+}
+
+body.user .review_input_table input[type="radio"]:focus + label,
+body.admin .review_input_table input[type="radio"]:focus + label {
+	box-shadow: 0 0 0 4px rgba(210, 183, 89, 0.22);
+}
+
+body.user .review_input_table input[type="radio"] + label.is-selected,
+body.admin .review_input_table input[type="radio"] + label.is-selected,
+body.user .review_input_table input[type="radio"]:checked + label,
+body.admin .review_input_table input[type="radio"]:checked + label {
+	background: #fff4bf;
+	color: #b57a19;
+	transform: translateY(-1px);
+}
+
+body.user .review_input_table textarea,
+body.admin .review_input_table textarea {
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 180px;
+	padding: 14px 16px;
+	border: 1px solid rgba(91, 111, 54, 0.38);
+	border-radius: 8px;
+	background: rgba(255, 252, 235, 0.88);
+	color: var(--witch-text);
+	font: inherit;
+	line-height: 1.7;
+	resize: vertical;
+}
+
+body.user .review_input_table textarea:focus,
+body.admin .review_input_table textarea:focus {
+	border-color: rgba(47, 91, 44, 0.72);
+	box-shadow: 0 0 0 4px rgba(210, 183, 89, 0.22);
+	outline: none;
+}
+
+body.user .review_rating_status,
+body.admin .review_rating_status {
+	min-height: 1.4em;
+	margin: -8px 0 0 134px;
+	color: var(--witch-green-deep);
+	font-weight: 900;
+}
+
+@media screen and (max-width: 560px) {
+	body.user .review_area,
+	body.admin .review_area {
+		padding: 16px 12px;
+	}
+
+	body.user .review_date,
+	body.admin .review_date {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	body.user .review_input_table,
+	body.admin .review_input_table,
+	body.user .review_input_table tbody,
+	body.admin .review_input_table tbody,
+	body.user .review_input_table tr,
+	body.admin .review_input_table tr,
+	body.user .review_input_table th,
+	body.admin .review_input_table th,
+	body.user .review_input_table td,
+	body.admin .review_input_table td {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	body.user .review_rating_status,
+	body.admin .review_rating_status {
+		margin-left: 0;
+	}
+}
+
+/* ---- Final product card overrides ---- */
+body.user .main .product_card_list,
+body.admin .main .product_card_list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 22px;
+	margin-top: 22px;
+}
+
+body.user .main .related_item_list.product_card_list,
+body.admin .main .related_item_list.product_card_list {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.user .main .product_card_list .product_card,
+body.admin .main .product_card_list .product_card {
+	width: auto;
+	height: auto;
+	min-width: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+body.user .main .product_card_list .product_card:nth-of-type(odd),
+body.admin .main .product_card_list .product_card:nth-of-type(odd) {
+	margin-right: 0;
+}
+
+body.user .main .product_card_link,
+body.admin .main .product_card_link {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	color: inherit;
+	text-decoration: none;
+}
+
+body.user .main .product_card_image,
+body.admin .main .product_card_image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1 / 1;
+	padding: 14px;
+	background:
+		linear-gradient(180deg, rgba(255, 253, 244, 0.95), rgba(247, 239, 214, 0.88));
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+body.user .main .product_card_image img,
+body.admin .main .product_card_image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0;
+	object-fit: contain;
+	position: static;
+	transition: transform 180ms ease;
+}
+
+body.user .main .product_card:hover .product_card_image img,
+body.admin .main .product_card:hover .product_card_image img {
+	transform: scale(1.025);
+}
+
+body.user .main .product_card_body,
+body.admin .main .product_card_body {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	flex: 1;
+	padding: 14px 16px 16px;
+	border-top: 1px solid rgba(183, 168, 117, 0.34);
+	background: rgba(255, 250, 235, 0.92);
+}
+
+body.user .main .product_card .product_card_name,
+body.admin .main .product_card .product_card_name {
+	display: -webkit-box;
+	position: static;
+	top: auto;
+	left: auto;
+	width: auto;
+	min-height: 2.8em;
+	padding: 0 0 8px;
+	background: transparent;
+	z-index: auto;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	color: var(--witch-green-deep);
+	font-size: 1rem;
+	line-height: 1.4;
+	overflow-wrap: anywhere;
+}
+
+body.user .main .product_card .product_card_review,
+body.admin .main .product_card .product_card_review {
+	margin-top: 0;
+	min-height: 1.3em;
+}
+
+body.user .main .product_card .product_card_price,
+body.admin .main .product_card .product_card_price {
+	margin-top: auto;
+	color: var(--witch-text);
+	font-size: 1.08rem;
+	font-weight: 800;
+}
+
+body.user .main .recently_viewed_items,
+body.admin .main .recently_viewed_items {
+	margin-top: 64px;
+}
+
+body.user .main .title,
+body.admin .main .title,
+body.user .content .title,
+body.admin .content .title,
+body.user .page_title,
+body.admin .page_title {
+	width: min(300px, 74%);
+	margin-bottom: 22px;
+	padding: 10px 22px;
+	font-size: 1.48rem;
+}
+
+body.user .main .related_items_title,
+body.admin .main .related_items_title,
+body.user .main .review_area > .title,
+body.admin .main .review_area > .title {
+	width: min(300px, 74%);
+	margin: 0 auto 18px;
+	padding: 10px 22px;
+	border: 1px solid #9a8f56;
+	border-radius: 8px;
+	background: linear-gradient(180deg, var(--witch-green), var(--witch-green-deep));
+	box-shadow:
+		inset 0 0 0 2px rgba(225, 208, 120, 0.28),
+		0 4px 8px rgba(40, 30, 10, 0.18);
+	color: #fff8df;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.48rem;
+	font-weight: 700;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.7);
+}
+
+body.user .main .review_area > .title,
+body.admin .main .review_area > .title {
+	color: #fff8df;
+}
+
+@media screen and (max-width: 768px) {
+	body.user .main .related_item_list.product_card_list,
+	body.admin .main .related_item_list.product_card_list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 520px) {
+	body.user .main .product_card_list,
+	body.admin .main .product_card_list,
+	body.user .main .related_item_list.product_card_list,
+	body.admin .main .related_item_list.product_card_list {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---- Spirit shop asset pass ---- */
+body.user,
+body.admin {
+	min-height: 100vh;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)),
+		url("../static/images/background.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+body.user::before,
+body.admin::before {
+	opacity: 0.2;
+	background:
+		linear-gradient(90deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12)),
+		radial-gradient(circle at 18% 12%, rgba(255, 248, 206, 0.3), transparent 24%),
+		radial-gradient(circle at 82% 14%, rgba(188, 214, 177, 0.22), transparent 28%);
+}
+
+body.user::after,
+body.admin::after {
+	content: "";
+	position: fixed;
+	left: clamp(10px, 3vw, 34px);
+	bottom: 12px;
+	z-index: 0;
+	width: clamp(78px, 10vw, 132px);
+	aspect-ratio: 471 / 469;
+	pointer-events: none;
+	background: url("../static/images/plants_books_bottle.png") center / contain no-repeat;
+	filter: drop-shadow(0 7px 8px rgba(48, 38, 18, 0.14));
+	opacity: 0.68;
+}
+
+body.user header .container,
+body.admin header .container {
+	align-items: center;
+	min-height: 124px;
+	padding-top: 12px;
+}
+
+body.user header .container::before,
+body.admin header .container::before {
+	display: block;
+	top: 7px;
+	left: -8px;
+	width: 78px;
+	height: 78px;
+	background: url("../static/images/leaf_corner_deco.png") center / contain no-repeat;
+	color: transparent;
+	transform: rotate(-10deg);
+	opacity: 0.82;
+}
+
+body.user header .container::after,
+body.admin header .container::after {
+	display: none;
+	top: 0;
+	right: clamp(8px, 3vw, 36px);
+	width: clamp(110px, 15vw, 176px);
+	height: clamp(92px, 12vw, 152px);
+	background: url("../static/images/hanging_herbs.png") top right / contain no-repeat;
+	color: transparent;
+	transform: rotate(2deg);
+	opacity: 0.92;
+	z-index: 0;
+}
+
+body.user .site_title,
+body.admin .site_title {
+	display: grid;
+	grid-template-columns: 88px minmax(0, 1fr);
+	align-items: center;
+	column-gap: 6px;
+	max-width: min(760px, calc(100vw - 150px));
+	margin: 8px 0 0 0;
+	padding-left: 0;
+	color: #244820;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", "Yu Gothic", serif;
+	font-size: clamp(2.1rem, 4.1vw, 3.55rem);
+	font-weight: 900;
+	line-height: 1.04;
+	letter-spacing: 0;
+	text-shadow:
+		0 2px 0 rgba(255, 250, 220, 0.92),
+		0 4px 9px rgba(73, 57, 24, 0.2);
+	filter: drop-shadow(0 2px 0 rgba(255, 255, 240, 0.75));
+}
+
+body.user .site_title::before,
+body.admin .site_title::before {
+	display: none;
+}
+
+body.user .site_title_hat,
+body.admin .site_title_hat {
+	width: 88px;
+	height: 88px;
+	object-fit: contain;
+	transform: rotate(-12deg);
+	filter: drop-shadow(0 5px 6px rgba(47, 36, 16, 0.2));
+	z-index: 2;
+}
+
+body.user .site_title::after,
+body.admin .site_title::after {
+	content: "Forest Spirit Market";
+	display: block;
+	margin-top: 7px;
+	color: #5a6b2f;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(0.92rem, 1.5vw, 1.15rem);
+	font-style: italic;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-shadow: 0 1px 0 rgba(255, 252, 232, 0.9);
+	grid-column: 2;
+}
+
+body.user .header_herbs,
+body.admin .header_herbs {
+	position: absolute;
+	top: 0;
+	right: clamp(8px, 3vw, 36px);
+	z-index: 0;
+	width: clamp(110px, 15vw, 176px);
+	height: auto;
+	pointer-events: none;
+	transform: rotate(2deg);
+	filter: drop-shadow(0 6px 6px rgba(50, 42, 20, 0.12));
+	opacity: 0.92;
+}
+
+body.user .user_info,
+body.admin .user_info {
+	margin-right: clamp(104px, 15vw, 188px);
+	padding: 13px 16px;
+	border: 1px solid rgba(126, 112, 67, 0.28);
+	border-radius: 999px;
+	background: rgba(255, 252, 238, 0.74);
+	backdrop-filter: blur(2px);
+}
+
+body.user .navi_menu,
+body.admin .navi_menu {
+	gap: clamp(8px, 1.4vw, 18px);
+	padding: 2px 0 24px;
+}
+
+body.user .navi_menu a,
+body.admin .navi_menu a {
+	min-height: 64px;
+	padding: 0 18px;
+	border: 0;
+	border-radius: 0;
+	background:
+		url("../static/images/navi_button_transparent_2x.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	color: #2e4d22;
+	font-size: clamp(1.04rem, 1.8vw, 1.35rem);
+	line-height: 64px;
+	white-space: nowrap;
+	filter: drop-shadow(0 5px 7px rgba(58, 43, 17, 0.13));
+}
+
+body.user .navi_menu a::before,
+body.admin .navi_menu a::before,
+body.user .navi_menu a::after,
+body.admin .navi_menu a::after {
+	display: none;
+}
+
+body.user .navi_menu a:hover,
+body.admin .navi_menu a:hover,
+body.user .navi_menu a.witch-active,
+body.admin .navi_menu a.witch-active {
+	background:
+		url("../static/images/navi_button_clicked_transparent_2x.png") center / 100% 100% no-repeat;
+	color: #fff8df;
+	text-shadow: 0 2px 2px rgba(22, 34, 12, 0.7);
+	transform: translateY(-2px);
+}
+
+body:has(.witch-item-list-page) .navi_menu a:hover,
+body:has(.witch-item-list-page) .navi_menu li:nth-child(2) a,
+body:has(.witch-item-list-page) .navi_menu a.witch-active {
+	background:
+		url("../static/images/navi_button_clicked_transparent_2x.png") center / 100% 100% no-repeat;
+	color: #fff8df;
+	text-shadow: 0 2px 2px rgba(22, 34, 12, 0.7);
+}
+
+body.user > .container,
+body.admin > .container {
+	gap: clamp(20px, 2.2vw, 34px);
+}
+
+body.user .main,
+body.admin .main,
+body.user .container.content,
+body.admin .container.content {
+	border: 32px solid transparent;
+	border-image: url("../static/images/body_frame_transparent_2x.png") 96 fill stretch;
+	border-radius: 0;
+	background:
+		linear-gradient(rgba(255, 253, 243, 0.9), rgba(250, 244, 224, 0.9)) padding-box;
+	box-shadow: 0 14px 28px rgba(63, 47, 18, 0.13);
+}
+
+body.user .main::before,
+body.admin .main::before,
+body.user .container.content::before,
+body.admin .container.content::before {
+	top: -34px;
+	left: -34px;
+	width: 92px;
+	height: 92px;
+	background: url("../static/images/corner_deco_3_transparent_2x.png") center / contain no-repeat;
+	color: transparent;
+	transform: rotate(0deg);
+	opacity: 0.88;
+}
+
+body.user .main::after,
+body.admin .main::after,
+body.user .container.content::after,
+body.admin .container.content::after {
+	right: -30px;
+	bottom: -30px;
+	width: 96px;
+	height: 96px;
+	background: url("../static/images/corner_deco_2_transparent_2x.png") center / contain no-repeat;
+	color: transparent;
+	transform: rotate(180deg);
+	opacity: 0.86;
+}
+
+body.user .main .title,
+body.admin .main .title,
+body.user .content .title,
+body.admin .content .title,
+body.user .page_title,
+body.admin .page_title,
+body.user .main .related_items_title,
+body.admin .main .related_items_title,
+body.user .main .review_area > .title,
+body.admin .main .review_area > .title {
+	width: min(460px, 88%);
+	min-height: 58px;
+	box-sizing: border-box;
+	margin: 0 auto 26px;
+	padding: 13px 52px 17px;
+	border: 0;
+	border-radius: 0;
+	background:
+		url("../static/images/green_title_ribbon.png") center / 100% 100% no-repeat,
+		linear-gradient(180deg, #54713a, #2e4e22);
+	box-shadow: none;
+	color: #fffbe6;
+	font-size: clamp(1.36rem, 2vw, 1.76rem);
+	line-height: 1.15;
+	text-shadow: 0 2px 2px rgba(24, 38, 14, 0.72);
+}
+
+body.user aside.search,
+body.admin aside.admin_menu {
+	width: 27%;
+	min-width: 268px;
+}
+
+body.user .search_area,
+body.admin .admin_menu > div,
+body.admin .admin_menu_list {
+	box-sizing: border-box;
+	min-height: 430px;
+	padding: 42px 28px 80px;
+	background: url("../static/images/sidebar_frame_transparent_2x.png") center top / 100% 100% no-repeat;
+	filter: drop-shadow(0 10px 13px rgba(52, 39, 15, 0.14));
+}
+
+body.user .search_area::after {
+	display: none;
+}
+
+body.user .search_area .title,
+body.admin .admin_menu .title,
+body.admin .admin_menu_list .title_area,
+body.admin .admin_menu_list .title_area_no_shadow {
+	min-height: 48px;
+	margin: 2px 0 12px;
+	padding: 10px 34px 12px;
+	border: 0;
+	border-radius: 0;
+	background:
+		url("../static/images/category_select_bar_transparent_3x.png") center /100% 100% no-repeat,
+		linear-gradient(180deg, rgba(255, 251, 232, 0.96), rgba(232, 219, 181, 0.92));
+	color: #30441d;
+	font-size: clamp(1rem, 1.4vw, 1.16rem);
+	line-height: 1.25;
+	text-shadow: 0 1px 0 rgba(255, 252, 226, 0.95);
+}
+
+body.user .search .form,
+body.admin .admin_menu .menu,
+body.admin .admin_menu_list .link_area {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+body.user .search .form form {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+	align-items: center;
+}
+
+body.user .search select {
+	min-height: 39px;
+	padding-right: 28px;
+	border: 0;
+	background:
+		linear-gradient(rgba(255, 252, 238, 0.76), rgba(255, 252, 238, 0.76)),
+		url("../static/images/category_select_bar_transparent_3x.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	appearance: none;
+}
+
+body.user .coupon_sidebar,
+body.admin .admin_menu .menu,
+body.admin .admin_menu_list .link_area {
+	gap: 12px;
+	margin-top: 18px;
+}
+
+body.user .coupon_sidebar a,
+body.admin .admin_menu .display_list,
+body.admin .admin_menu_list .link_area a {
+	position: relative;
+	min-height: 54px;
+	padding: 8px 16px 9px 56px;
+	border: 0;
+	border-radius: 0;
+	background: url("../static/images/sidebar_button.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	color: #2d421f;
+	font-size: clamp(0.96rem, 1.16vw, 1.08rem);
+	line-height: 1.18;
+	filter: drop-shadow(0 3px 4px rgba(58, 43, 17, 0.12));
+}
+
+body.user .coupon_sidebar a:hover,
+body.admin .admin_menu .display_list:hover,
+body.admin .admin_menu_list .link_area a:hover {
+	background: url("../static/images/sidebar_button.png") center / 100% 100% no-repeat;
+	color: #1d3518;
+	transform: translateY(-1px);
+}
+
+body.user .coupon_sidebar a::before {
+	content: "";
+	position: absolute;
+	left: -4px;
+	top: 50%;
+	width: 62px;
+	height: 62px;
+	border: 0;
+	border-radius: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transform: translateY(-50%) rotate(-6deg);
+	filter: drop-shadow(0 4px 4px rgba(53, 39, 16, 0.18));
+}
+
+body.user .coupon_sidebar a.coupon_nav_mine::before {
+	background-image: url("../static/images/coupon_ticket_icon.png");
+	width: 70px;
+}
+
+body.user .coupon_sidebar a.coupon_nav_gacha::before {
+	background-image: url("../static/images/gacha_crystal_icon.png");
+	transform: translateY(-50%) rotate(4deg);
+}
+
+body.user .coupon_sidebar a.coupon_nav_favorite::before {
+	background-image: url("../static/images/favorite_leaf_heart_icon.png");
+	transform: translateY(-50%) rotate(-3deg);
+}
+
+body.user .list_table,
+body.admin .list_table,
+body.user .detail_table,
+body.admin .detail_table {
+	border: 26px solid transparent;
+	border-image: url("../static/images/table_frame_transparent_2x.png") 82 fill stretch;
+	border-collapse: separate;
+	border-spacing: 0;
+	background:
+		linear-gradient(rgba(255, 253, 242, 0.94), rgba(255, 250, 232, 0.94)) padding-box;
+	box-shadow: 0 8px 16px rgba(59, 43, 16, 0.1);
+}
+
+body.user .list_table th,
+body.admin .list_table th,
+body.user .detail_table th,
+body.admin .detail_table th {
+	background: linear-gradient(180deg, rgba(69, 104, 44, 0.95), rgba(45, 72, 34, 0.96));
+}
+
+body:has(.login_spell_page) {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)),
+		url("../static/images/background.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+body:has(.login_spell_page) .login_hat {
+	width: 88px;
+	height: 88px;
+	border-radius: 0;
+	background: url("../static/images/logo_witch_hat.png") center / contain no-repeat;
+	box-shadow: none;
+	transform: rotate(-10deg);
+}
+
+body:has(.login_spell_page) .login_hat::before,
+body:has(.login_spell_page) .login_hat::after {
+	display: none;
+}
+
+body:has(.login_spell_page) .login_shop_name {
+	color: #244820;
+	font-size: clamp(1.7rem, 5vw, 2.35rem);
+	text-shadow:
+		0 2px 0 rgba(255, 250, 220, 0.92),
+		0 4px 9px rgba(73, 57, 24, 0.16);
+}
+
+@media screen and (max-width: 900px) {
+	body.user header .container::after,
+	body.admin header .container::after {
+		width: 118px;
+		height: 118px;
+		opacity: 0.62;
+	}
+
+	body.user .site_title,
+	body.admin .site_title {
+		max-width: calc(100vw - 132px);
+		font-size: clamp(1.72rem, 7vw, 2.55rem);
+	}
+
+	body.user .user_info,
+	body.admin .user_info {
+		margin-right: 0;
+	}
+
+	body.user .main,
+	body.admin .main,
+	body.user .container.content,
+	body.admin .container.content {
+		border-width: 24px;
+		padding: 20px 18px 34px;
+	}
+
+	body.user .search_area,
+	body.admin .admin_menu > div,
+	body.admin .admin_menu_list {
+		min-height: 0;
+		padding: 36px 26px 54px;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	body.user::after,
+	body.admin::after {
+		width: 82px;
+		opacity: 0.48;
+	}
+
+	body.user header .container::after,
+	body.admin header .container::after,
+	body.user .header_herbs,
+	body.admin .header_herbs {
+		display: none;
+	}
+
+	body.user .site_title,
+	body.admin .site_title {
+		max-width: calc(100vw - 96px);
+		margin-left: 0;
+		grid-template-columns: 66px minmax(0, 1fr);
+		font-size: clamp(1.44rem, 7.8vw, 2rem);
+	}
+
+	body.user .site_title_hat,
+	body.admin .site_title_hat {
+		width: 66px;
+		height: 66px;
+	}
+
+	body.user .site_title::after,
+	body.admin .site_title::after {
+		font-size: 0.78rem;
+	}
+
+	body.user .navi_menu,
+	body.admin .navi_menu {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	body.user .navi_menu a,
+	body.admin .navi_menu a {
+		min-height: 54px;
+		padding: 0 10px;
+		font-size: 0.98rem;
+		line-height: 54px;
+	}
+
+	body.user .main,
+	body.admin .main,
+	body.user .container.content,
+	body.admin .container.content {
+		border-width: 18px;
+		padding: 18px 10px 30px;
+	}
+
+	body.user .main .title,
+	body.admin .main .title,
+	body.user .content .title,
+	body.admin .content .title,
+	body.user .page_title,
+	body.admin .page_title,
+	body.user .main .related_items_title,
+	body.admin .main .related_items_title,
+	body.user .main .review_area > .title,
+	body.admin .main .review_area > .title {
+		min-height: 50px;
+		padding: 11px 32px 14px;
+		font-size: 1.18rem;
+	}
+
+	body.user .list_table,
+	body.admin .list_table,
+	body.user .detail_table,
+	body.admin .detail_table {
+		border-width: 16px;
+	}
+
+	body.user .coupon_sidebar a,
+	body.admin .admin_menu .display_list,
+	body.admin .admin_menu_list .link_area a {
+		padding-left: 50px;
+	}
+}
+
+/* Order address flow refinements */
+.address_select_row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.address_select_row label {
+	flex: 1;
+}
+
+.address_edit_button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 64px;
+	padding: 6px 12px;
+	border: 1px solid #b49f56;
+	border-radius: 6px;
+	background: #fff8dc;
+	color: #244c2b;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.order_address_message,
+.point_error_top {
+	width: min(720px, 92%);
+	margin: 12px auto 18px;
+	padding: 12px 16px;
+	border: 2px solid #b44b32;
+	border-radius: 8px;
+	background: #fff3ed;
+	color: #a12f1c;
+	font-weight: 800;
+	text-align: center;
+}
+
+.order_delivery_date_area {
+	margin: 22px 0;
+	padding: 16px;
+	border: 1px solid #d8c984;
+	border-radius: 8px;
+	background: rgba(255, 252, 232, 0.8);
+}
+
+.order_delivery_date_area input[type="date"] {
+	max-width: 220px;
+}
+
+/* Client order list status readability */
+body.user .list_table.order th:nth-child(2),
+body.user .list_table.order td.order_status_cell {
+	width: 92px;
+	min-width: 92px;
+	white-space: nowrap;
+	overflow-wrap: normal;
+	word-break: keep-all;
+}
+
+body.user .list_table.order td.order_status_cell {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.order_status_badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 68px;
+	padding: 4px 8px;
+	border-radius: 999px;
+	font-size: 0.92rem;
+	font-weight: 800;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.order_status_active {
+	border: 1px solid rgba(70, 115, 49, 0.38);
+	background: #edf5dc;
+	color: #2f5b2c;
+}
+
+body.user .list_table.order tr.order_canceled_row td {
+	background: rgba(178, 83, 63, 0.13);
+	color: #6f5f5a;
+}
+
+body.user .list_table.order tr.order_canceled_row td:first-child {
+	border-left: 5px solid #b2533f;
+}
+
+body.user .list_table.order tr.order_canceled_row a {
+	color: #7d3b2e;
+}
+
+body.user .list_table.order tr.order_canceled_row:hover td {
+	background: rgba(178, 83, 63, 0.2);
+}
+
+.order_status_canceled {
+	border: 1px solid rgba(178, 83, 63, 0.42);
+	background: #f7ddd6;
+	color: #93402f;
+}
+
+/* ---- Spirit shop final alignment pass ---- */
+body.user header .container,
+body.admin header .container,
+body:has(.witch-item-list-page) header .container {
+	min-height: 96px;
+	padding-top: 8px;
+}
+
+body.user .site_title,
+body.admin .site_title,
+body:has(.witch-item-list-page) .site_title {
+	grid-template-columns: 70px minmax(0, 1fr);
+	max-width: min(620px, calc(100vw - 150px));
+	margin-top: 4px;
+	font-size: clamp(1.66rem, 3.25vw, 2.55rem);
+	line-height: 1.02;
+}
+
+body.user .site_title_hat,
+body.admin .site_title_hat,
+body:has(.witch-item-list-page) .site_title_hat {
+	width: 70px;
+	height: 70px;
+}
+
+body.user .site_title::before,
+body.admin .site_title::before,
+body:has(.witch-item-list-page) .site_title::before {
+	display: none;
+	content: none;
+}
+
+body.user .site_title::after,
+body.admin .site_title::after,
+body:has(.witch-item-list-page) .site_title::after {
+	content: "Forest Spirit Market";
+	grid-column: 2;
+	margin-top: 4px;
+	font-size: clamp(0.78rem, 1.18vw, 0.96rem);
+}
+
+body.user .header_herbs,
+body.admin .header_herbs,
+body:has(.witch-item-list-page) .header_herbs {
+	width: clamp(96px, 12vw, 146px);
+}
+
+body.user .navi_area,
+body.admin .navi_area {
+	position: relative;
+	padding: 18px 0 22px;
+}
+
+body.user .navi_area::before,
+body.user .navi_area::after,
+body.admin .navi_area::before,
+body.admin .navi_area::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: min(1180px, calc(100% - 48px));
+	height: 22px;
+	pointer-events: none;
+	background: url("../static/images/fairy_forest_divider_line.png") center / 100% 100% no-repeat;
+	transform: translateX(-50%);
+	opacity: 0.9;
+}
+
+body.user .navi_area::before,
+body.admin .navi_area::before {
+	top: 0;
+}
+
+body.user .navi_area::after,
+body.admin .navi_area::after {
+	bottom: 0;
+}
+
+body.user .navi_menu,
+body.admin .navi_menu,
+body:has(.witch-item-list-page) .navi_menu {
+	padding: 4px 0;
+}
+
+body.user > .container,
+body.admin > .container,
+body:has(.witch-item-list-page) > .container {
+	display: grid;
+	grid-template-columns: 348px minmax(0, 1fr);
+	align-items: start;
+	gap: 28px;
+	width: min(1280px, calc(100% - 40px));
+}
+
+body.user aside.search,
+body.admin aside.admin_menu,
+body:has(.witch-item-list-page) aside.search {
+	width: 348px;
+	min-width: 348px;
+}
+
+body.user .main,
+body.admin .main,
+body:has(.witch-item-list-page) .main {
+	width: auto;
+	min-width: 0;
+}
+
+body.user .main .title,
+body.admin .main .title,
+body.user .content .title,
+body.admin .content .title,
+body.user .page_title,
+body.admin .page_title,
+body.user .main .related_items_title,
+body.admin .main .related_items_title,
+body.user .main .review_area > .title,
+body.admin .main .review_area > .title,
+body:has(.witch-item-list-page) .witch-page-title {
+	width: min(380px, 82%);
+	min-height: 56px;
+	margin: 0 auto 24px;
+	padding: 12px 44px 15px;
+	border: 0;
+	border-radius: 0;
+	background: url("../static/images/title_transparent_2x.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	color: #fffbe6;
+	font-size: clamp(1.28rem, 1.78vw, 1.62rem);
+	line-height: 1.15;
+	text-shadow:
+		0 2px 2px rgba(19, 35, 14, 0.78),
+		0 0 8px rgba(255, 245, 190, 0.22);
+}
+
+body.user .search_area,
+body.admin .admin_menu > div,
+body.admin .admin_menu_list,
+body:has(.witch-item-list-page) .search_area {
+	box-sizing: border-box;
+	width: 348px;
+	min-height: 430px;
+	padding: 38px 42px 70px;
+	background: url("../static/images/sidebar_frame_transparent_2x.png") center top / 100% 100% no-repeat;
+}
+
+body.user .search_area .title,
+body.admin .admin_menu .title,
+body.admin .admin_menu_list .title_area,
+body.admin .admin_menu_list .title_area_no_shadow,
+body:has(.witch-item-list-page) .search_area .title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 50px;
+	margin: 0 auto 13px;
+	padding: 9px 34px 13px;
+	border: 0;
+	border-radius: 0;
+	background: url("../static/images/green_title_ribbon.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	color: #fffbe6;
+	font-size: 1.12rem;
+	font-weight: 900;
+	line-height: 1.1;
+	text-align: center;
+	text-shadow: 0 2px 2px rgba(20, 35, 12, 0.76);
+}
+
+body.user .search .form,
+body:has(.witch-item-list-page) .search .form {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+body.user .search .form form,
+body:has(.witch-item-list-page) .search .form form {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 62px;
+	gap: 8px;
+	align-items: center;
+	width: 92%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+body.user .search .form select,
+body:has(.witch-item-list-page) .search .form select {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	min-height: 43px;
+	padding: 8px 28px 8px 12px;
+	border: 0;
+	box-sizing: border-box;
+	background: url("../static/images/category_select_bar_transparent_3x.png") center / 100% 100% no-repeat;
+	box-shadow: none;
+	appearance: none;
+}
+
+body.user .search .form [type=submit],
+body:has(.witch-item-list-page) .search .form [type=submit] {
+	width: 62px;
+	min-width: 62px;
+	padding-inline: 0;
+}
+
+body.user .coupon_sidebar,
+body:has(.witch-item-list-page) .coupon_sidebar {
+	gap: 14px;
+	margin-top: 26px;
+}
+
+body.user .coupon_sidebar a,
+body:has(.witch-item-list-page) .coupon_sidebar a {
+	min-height: 58px;
+	padding: 10px 18px 11px 64px;
+	border: 0;
+	background: url("../static/images/sidebar_button.png") center / 100% 100% no-repeat;
+	color: #163d24;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+	font-size: 1.12rem;
+	font-weight: 900;
+	letter-spacing: 0;
+	text-shadow:
+		0 1px 0 rgba(255, 247, 207, 0.82),
+		0 0 7px rgba(239, 219, 132, 0.22);
+}
+
+body.user .coupon_sidebar a::before,
+body:has(.witch-item-list-page) .coupon_sidebar a::before,
+body.user .coupon_sidebar a:nth-child(1)::before,
+body.user .coupon_sidebar a:nth-child(2)::before,
+body.user .coupon_sidebar a:nth-child(3)::before,
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(1)::before,
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(2)::before,
+body:has(.witch-item-list-page) .coupon_sidebar a:nth-child(3)::before {
+	content: "" !important;
+	left: -12px;
+	top: 50%;
+	width: 78px;
+	height: 78px;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	box-shadow: none;
+	filter: drop-shadow(0 4px 5px rgba(53, 39, 16, 0.16));
+}
+
+body.user .coupon_sidebar a.coupon_nav_mine::before,
+body:has(.witch-item-list-page) .coupon_sidebar a.coupon_nav_mine::before {
+	background-image: url("../static/images/coupon_ticket_icon.png") !important;
+	width: 86px;
+}
+
+body.user .coupon_sidebar a.coupon_nav_gacha::before,
+body:has(.witch-item-list-page) .coupon_sidebar a.coupon_nav_gacha::before {
+	background-image: url("../static/images/gacha_crystal_icon.png") !important;
+}
+
+body.user .coupon_sidebar a.coupon_nav_favorite::before,
+body:has(.witch-item-list-page) .coupon_sidebar a.coupon_nav_favorite::before {
+	background-image: url("../static/images/favorite_leaf_heart_icon.png") !important;
+}
+
+body.user .spirit-paginated-table,
+body.admin .spirit-paginated-table {
+	margin-bottom: 14px;
+	table-layout: fixed;
+}
+
+body.user .spirit-paginated-table[style],
+body.admin .spirit-paginated-table[style] {
+	min-height: 0;
+}
+
+.spirit_pager {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	margin: 16px auto 8px;
+	padding: 8px 12px;
+	border-top: 1px solid rgba(112, 125, 62, 0.22);
+}
+
+.spirit_pager_button {
+	min-width: 36px;
+	height: 36px;
+	border: 1px solid rgba(78, 105, 45, 0.56);
+	border-radius: 999px;
+	background:
+		linear-gradient(180deg, rgba(255, 253, 236, 0.94), rgba(226, 237, 195, 0.9));
+	color: #254b24;
+	font-family: Georgia, "Yu Mincho", serif;
+	font-size: 1rem;
+	font-weight: 900;
+	cursor: pointer;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.74),
+		0 3px 7px rgba(46, 63, 28, 0.13);
+}
+
+.spirit_pager_button:hover:not(:disabled),
+.spirit_pager_button.is-current {
+	background: linear-gradient(180deg, #557331, #274a22);
+	color: #fff8df;
+	text-shadow: 0 1px 1px rgba(20, 30, 12, 0.65);
+	transform: translateY(-1px);
+}
+
+.spirit_pager_button:disabled {
+	cursor: default;
+	opacity: 0.42;
+}
+
+.spirit_pager_arrow {
+	font-size: 1.45rem;
+	line-height: 1;
+}
+
+@media screen and (max-width: 900px) {
+	body.user > .container,
+	body.admin > .container,
+	body:has(.witch-item-list-page) > .container {
+		display: flex;
+		flex-direction: column;
+		width: calc(100% - 24px);
+	}
+
+	body.user aside.search,
+	body.admin aside.admin_menu,
+	body:has(.witch-item-list-page) aside.search,
+	body.user .search_area,
+	body.admin .admin_menu > div,
+	body.admin .admin_menu_list,
+	body:has(.witch-item-list-page) .search_area {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	body.user header .container,
+	body.admin header .container,
+	body:has(.witch-item-list-page) header .container {
+		min-height: 88px;
+	}
+
+	body.user .site_title,
+	body.admin .site_title,
+	body:has(.witch-item-list-page) .site_title {
+		grid-template-columns: 54px minmax(0, 1fr);
+		max-width: 100%;
+		font-size: clamp(1.02rem, 5.35vw, 1.34rem);
+	}
+
+	body.user .site_title_hat,
+	body.admin .site_title_hat,
+	body:has(.witch-item-list-page) .site_title_hat {
+		width: 54px;
+		height: 54px;
+	}
+
+	body.user .navi_area,
+	body.admin .navi_area {
+		padding: 14px 0 18px;
+	}
+
+	body.user .navi_area::before,
+	body.user .navi_area::after,
+	body.admin .navi_area::before,
+	body.admin .navi_area::after {
+		width: calc(100% - 22px);
+		height: 16px;
+	}
+}
+
+/* ---- User detail width containment ---- */
+.main:has(.user_detail_page) {
+	overflow: hidden;
+}
+
+.user_detail_page,
+.user_detail_page .info_form_area,
+.user_detail_page .detail_area,
+.user_detail_page .delivery_address_area,
+.user_detail_page .login_history_area {
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+.user_detail_page {
+	width: 100%;
+	overflow: hidden;
+}
+
+.user_detail_page .info_form_area {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: clamp(12px, 3vw, 36px);
+}
+
+.user_detail_page .detail_area {
+	width: min(720px, 100%);
+	margin-inline: auto;
+}
+
+.user_detail_page .detail_area .input_list {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+}
+
+.user_detail_page .detail_area .input_list li {
+	display: grid;
+	grid-template-columns: minmax(120px, 28%) minmax(0, 1fr);
+	column-gap: 18px;
+}
+
+.user_detail_page .detail_area .input_value {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.user_detail_page .delivery_address_title,
+.user_detail_page .login_history_title {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.user_detail_page .delivery_address_area,
+.user_detail_page .login_history_area {
+	width: min(820px, 100%);
+	margin: 0 auto;
+	padding: 0 0 12px;
+	overflow: hidden;
+}
+
+.user_detail_page .delivery_address_table_frame {
+	box-sizing: border-box;
+	width: min(100%, 780px);
+	margin: 8px auto 0;
+	padding: 18px;
+	overflow: hidden;
+	border: 22px solid transparent;
+	border-image: url("../static/images/table_frame_transparent_2x.png") 82 fill stretch;
+	background: linear-gradient(rgba(255, 253, 242, 0.94), rgba(255, 250, 232, 0.94)) padding-box;
+	box-shadow: 0 8px 16px rgba(59, 43, 16, 0.1);
+}
+
+.user_detail_page .delivery_address_list {
+	box-sizing: border-box;
+	width: 100% !important;
+	max-width: 100%;
+	min-width: 0;
+	margin: 0 !important;
+	border: 0 !important;
+	border-image: none !important;
+	border-collapse: separate;
+	border-spacing: 0;
+	table-layout: fixed;
+	background: rgba(255, 253, 242, 0.96);
+	box-shadow: none !important;
+}
+
+.user_detail_page .delivery_address_list .delivery_col_no {
+	width: 7%;
+}
+
+.user_detail_page .delivery_address_list .delivery_col_name {
+	width: 11%;
+}
+
+.user_detail_page .delivery_address_list .delivery_col_postal {
+	width: 14%;
+}
+
+.user_detail_page .delivery_address_list .delivery_col_address {
+	width: 43%;
+}
+
+.user_detail_page .delivery_address_list .delivery_col_phone {
+	width: 25%;
+}
+
+.user_detail_page .delivery_address_list th,
+.user_detail_page .delivery_address_list td {
+	box-sizing: border-box;
+	padding: 12px 8px;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.user_detail_page .delivery_address_list th {
+	font-size: clamp(0.86rem, 1.15vw, 1rem);
+	white-space: normal;
+}
+
+.user_detail_page .delivery_address_list td {
+	font-size: clamp(0.9rem, 1.15vw, 1rem);
+	line-height: 1.55;
+}
+
+.user_detail_page .delivery_address_list .address_cell {
+	min-width: 0;
+	text-align: left;
+}
+
+.user_detail_page .delivery_address_list .phone_ops_cell {
+	min-width: 0;
+}
+
+.user_detail_page .delivery_address_list .cell_with_ops {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: start;
+	gap: 7px;
+	padding: 6px 0 !important;
+}
+
+.user_detail_page .delivery_address_list .phone_text {
+	min-width: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.user_detail_page .delivery_address_list .ops_links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	min-width: 0;
+	font-size: 0.88rem;
+	white-space: normal;
+}
+
+.user_detail_page .login_history_list {
+	box-sizing: border-box;
+	width: min(680px, 100%);
+	max-width: 100%;
+	margin-inline: auto !important;
+	table-layout: fixed;
+}
+
+@media screen and (max-width: 900px) {
+	.user_detail_page .info_form_area {
+		padding-inline: 8px;
+	}
+
+	.user_detail_page .detail_area .input_list li {
+		grid-template-columns: 1fr;
+		row-gap: 6px;
+	}
+
+	.user_detail_page .delivery_address_table_frame {
+		width: 100%;
+		padding: 12px;
+		border-width: 16px;
+		overflow-x: auto;
+	}
+
+	.user_detail_page .delivery_address_list {
+		min-width: 660px;
+	}
+}

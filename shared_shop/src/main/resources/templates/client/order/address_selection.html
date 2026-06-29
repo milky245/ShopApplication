@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="#{title.order.address.input}+' | '+ #{shop.title}"> </title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user order_address_selection">
+	<h2 th:class="title" th:text="#{title.order.address.input}"></h2>
+	<p th:class="input_message">お届け先を選択してください。</p>
+	<div class="user_info_form_area">
+		<p class="order_address_message" th:if="${orderAddressError != null}" th:text="${orderAddressError}"></p>
+		<form th:action="@{/client/order/address/select}" method="post" th:object="${orderForm}">
+			<ul class="input_list address_select_list">
+				<li th:each="address : ${deliveryAddresses}">
+					<div class="address_select_row">
+						<label>
+							<input type="radio" name="deliveryAddressId" th:value="${address.id}"
+								th:checked="${address.id == orderForm.deliveryAddressId}" required />
+							<span th:text="'お届け先' + ${address.addressNo} + '：' + ${address.name} + '（' + ${address.address} + '）'"></span>
+						</label>
+						<a class="address_edit_button"
+							th:href="@{/client/order/address/update/input(deliveryAddressId=${address.id})}">編集</a>
+					</div>
+				</li>
+			</ul>
+			<div class="new_address_link">
+				<a th:if="${canAddDeliveryAddress}" th:href="@{/client/order/address/input}">新しい住所に届ける</a>
+				<span th:unless="${canAddDeliveryAddress}">お届け先は最大3件まで登録できます。</span>
+			</div>
+			<div class="order_delivery_date_area">
+				<label><span class="input_title">[[#{data.delivery.date}]]</span></label>
+				<input type="date" th:field="*{deliveryDate}" />
+				<p th:text="#{msg.order.delivery.date.hint}"></p>
+				<ul th:if="${#fields.hasErrors('deliveryDate')}" class="error_list">
+					<li th:each="err : ${#fields.errors('deliveryDate')}" th:text="${err}"></li>
+				</ul>
+			</div>
+			<input type="submit" value="次へ" class="send_button" />
+		</form>
+		<form th:action="@{/client/basket/list}" method="post">
+			<input type="submit" value="戻る" class="back_button" />
+		</form>
+	</div>
+</body>
+
+</html>

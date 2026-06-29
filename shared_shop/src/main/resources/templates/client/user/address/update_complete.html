@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="'お届け先'+#{title.update.complete}+' | '+ #{shop.title}"> </title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user delivery_address_update_complete">
+	<h2 th:class="title" th:text="'お届け先'+#{title.update.complete}"></h2>
+	<p th:class="input_message" th:text="#{msg.update.complete}"></p>
+	<div class="user_info_form_area">
+		<form th:action="@{/client/user/detail}" method="post">
+			<input type="submit" value="詳細へ戻る" class="back_button" />
+		</form>
+	</div>
+</body>
+
+</html>

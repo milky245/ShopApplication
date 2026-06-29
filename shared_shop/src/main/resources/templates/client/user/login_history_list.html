@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title>ログイン履歴 | [[#{shop.title}]]</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user login_history_list">
+	<h2 class="title">ログイン履歴（過去1年分）</h2>
+
+	<div th:if="${#lists.isEmpty(loginHistories)}">
+		<p th:text="#{msg.login.history.list.none}"></p>
+	</div>
+	<div th:if="${!#lists.isEmpty(loginHistories)}">
+		<table class="list_table">
+			<thead>
+				<tr>
+					<th th:text="#{data.login.history.datetime}"></th>
+					<th th:text="#{data.login.history.ipaddress}"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="history : ${loginHistories}">
+					<td th:text="${#dates.format(history.loginDateTime, 'yyyy/MM/dd HH:mm:ss')}"></td>
+					<td th:text="${history.ipAddress}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="detail_button_area">
+		<form th:action="@{/client/user/detail}" method="post">
+			<input type="submit" value="戻る" class="back_button" />
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{common/layout_5block :: layout(~{::title},~{::body/content()})}">
+
+<head>
+	<title th:text="#{user}+#{title.detail}+' | '+ #{shop.title}"> </title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="user user_detail">
+	<div class="user_detail_page">
+	<h2 th:class="title" th:text="#{user}+#{title.detail}"></h2>
+
+	<div class="info_form_area">
+		<div class="detail_area">
+			<ul class="input_list" th:object=${userBean}>
+				<li>
+					<span class="input_title">[[#{userForm.email}]]</span>
+					<span class="input_value" th:text="*{email}"></span>
+				</li>
+				<li>
+					<span class="input_title">[[#{userForm.name}]]</span>
+					<span class="input_value" th:text="*{name}"></span>
+				</li>
+				<li>
+					<span class="input_title">[[#{userForm.postalCode}]]</span>
+					<span class="input_value" th:text="*{postalCode}"></span>
+				</li>
+				<li>
+					<span class="input_title">[[#{userForm.address}]]</span>
+					<span class="input_value" th:text="*{address}"></span>
+				</li>
+				<li>
+					<span class="input_title">[[#{userForm.phoneNumber}]]</span>
+					<span class="input_value" th:text="*{phoneNumber}"></span>
+				</li>
+				<li>
+					<span class="input_title">保有ポイント</span>
+					<span class="input_value" th:text="|*{point}pt|"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="detail_button_area">
+			<form th:action="@{/client/coupon/list}" method="get">
+				<input type="submit" value="保有クーポン" class="coupon_button" />
+			</form>
+			<form th:action="@{/}" method="post">
+				<input type="submit" value="戻る" class="back_button" />
+			</form>
+			<form th:action="@{/client/user/update/input}" method="post">
+				<input type="submit" value="変更" />
+			</form>
+			<form th:action="@{/client/user/delete/check}" method="post">
+				<input type="submit" value="退会" class="delete" />
+			</form>
+		</div>
+
+		<h3 class="title delivery_address_title">お届け先管理</h3>
+		<div class="delivery_address_area">
+			<div th:if="${#lists.isEmpty(deliveryAddresses)}">
+				<p>登録済みのお届け先はありません。</p>
+			</div>
+			<div class="delivery_address_table_frame" th:if="${!#lists.isEmpty(deliveryAddresses)}">
+				<table class="list_table delivery_address_list">
+					<colgroup>
+						<col class="delivery_col_no" />
+						<col class="delivery_col_name" />
+						<col class="delivery_col_postal" />
+						<col class="delivery_col_address" />
+						<col class="delivery_col_phone" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>番号</th>
+							<th>氏名</th>
+							<th>郵便番号</th>
+							<th>住所</th>
+							<th style="text-align: left; padding-left: 10px;">電話番号</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="address : ${deliveryAddresses}">
+							<td th:text="${address.addressNo}"></td>
+							<td th:text="${address.name}"></td>
+							<td th:text="${address.postalCode}"></td>
+							<td class="address_cell" th:text="${address.address}"></td>
+							<td class="phone_ops_cell">
+								<div class="cell_with_ops">
+									<span class="phone_text" th:text="${address.phoneNumber}"></span>
+									<div class="ops_links">
+										<form th:action="@{/client/delivery_address/update/input/{id}(id=${address.id})}" method="post" class="inline_form">
+											<a onclick="this.parentNode.submit()">編集</a>
+										</form>
+										<span class="separator">|</span>
+										<form th:action="@{/client/delivery_address/delete/check/{id}(id=${address.id})}" method="post" class="inline_form">
+											<a onclick="this.parentNode.submit()" class="delete_link">削除</a>
+										</form>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="regist_button_area">
+				<form th:action="@{/client/delivery_address/regist/input}" method="post">
+					<input type="submit" value="お届け先登録" th:disabled="${#lists.size(deliveryAddresses) >= 3}" />
+				</form>
+				<p th:if="${#lists.size(deliveryAddresses) >= 3}" class="error_message">お届け先は最大3件まで登録可能です。</p>
+			</div>
+		</div>
+
+		<h3 class="title login_history_title">ログイン履歴（最新3件）</h3>
+		<div class="login_history_area">
+			<div th:if="${#lists.isEmpty(loginHistories)}">
+				<p th:text="#{msg.login.history.list.none}"></p>
+			</div>
+			<div th:if="${!#lists.isEmpty(loginHistories)}">
+				<table class="list_table login_history_list">
+					<thead>
+						<tr>
+							<th th:text="#{data.login.history.datetime}"></th>
+							<th th:text="#{data.login.history.ipaddress}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="history : ${loginHistories}">
+							<td th:text="${#dates.format(history.loginDateTime, 'yyyy/MM/dd HH:mm:ss')}"></td>
+							<td th:text="${history.ipAddress}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="all_show_link">
+					<a th:href="@{/client/user/login_history}">すべて表示</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>
