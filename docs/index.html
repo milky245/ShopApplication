@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shared Shop - 精霊ショップ Portfolio</title>
+	<link rel="stylesheet" href="shared_shop_portfolio.css">
+</head>
+<body>
+	<div class="page-mist" aria-hidden="true"></div>
+
+	<header class="site-header">
+		<a class="brand" href="#top" aria-label="Shared Shop Portfolio">
+			<img src="images/logo_witch_hat.png" alt="" class="brand-hat">
+			<span>Shared Shop</span>
+			<small>精霊ショップ Portfolio</small>
+		</a>
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+			<span></span><span></span><span></span>
+		</button>
+		<nav class="site-nav" id="siteNav" aria-label="Portfolio navigation">
+			<a href="#overview">概要</a>
+			<a href="#features">機能</a>
+			<a href="#ui">UI刷新</a>
+			<a href="#screens">画面</a>
+			<a href="#stack">技術</a>
+			<a href="#permissions">権限</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero section-band">
+			<div class="container hero-grid">
+				<div class="hero-copy reveal">
+					<h1>Shared Shop - 精霊ショップ</h1>
+					<p class="lead">Spring Boot と Oracle Database で構築した会員制 EC サイトを、森の精霊が営む小さな商店のような世界観で紹介します。</p>
+					<div class="hero-actions">
+						<a class="forest-button primary" href="#screens">画面を見る</a>
+						<a class="forest-button" href="#features">機能を読む</a>
+						<a class="forest-button github-button" href="https://github.com/cac-it-training-2026/shared-shop-app-shared-shop-b008/tree/dev" target="_blank" rel="noopener noreferrer" aria-label="GitHubでプロジェクトを見る">
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.32 9.32 0 0 1 12 6.93c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.59.69.49A10.11 10.11 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/>
+							</svg>
+							<span>GitHub</span>
+						</a>
+					</div>
+				</div>
+				<div class="hero-art reveal">
+					<img class="hanging-herbs" src="images/hanging_herbs.png" alt="">
+					<div class="image-frame">
+						<img src="screenshots/top.png" alt="Shared Shop トップ画面" data-lightbox>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="overview" class="section">
+			<div class="container">
+				<h2 class="ribbon-title">開発概要</h2>
+				<div class="overview-grid">
+					<article class="wood-card reveal"><span>期間</span><strong>2026/06/05 - 2026/06/25</strong></article>
+					<article class="wood-card reveal"><span>人数</span><strong>5人チーム</strong></article>
+					<article class="wood-card reveal"><span>Backend</span><strong>Java / Spring Boot</strong></article>
+					<article class="wood-card reveal"><span>Database</span><strong>Oracle Database</strong></article>
+				</div>
+			</div>
+		</section>
+
+		<section id="features" class="section parchment">
+			<div class="container two-column">
+				<div class="section-intro reveal">
+					<h2 class="ribbon-title">実装機能</h2>
+					<p>基本的な EC フローに加えて、レビュー、お気に入り、クーポンガチャ、ログイン履歴など、購入前後の体験を支える機能を追加しました。</p>
+				</div>
+				<div class="feature-list">
+					<article class="feature-card reveal"><b>商品閲覧</b><span>商品検索・カテゴリ検索・詳細表示</span></article>
+					<article class="feature-card reveal"><b>購入フロー</b><span>買い物かご、注文確認、注文履歴</span></article>
+					<article class="feature-card reveal"><b>レビュー</b><span>購入済み商品の評価とコメント投稿</span></article>
+					<article class="feature-card reveal"><b>お気に入り</b><span>会員ごとの商品保存と一覧表示</span></article>
+					<article class="feature-card reveal"><b>クーポン</b><span>マイクーポン、注文時利用、日次ガチャ</span></article>
+					<article class="feature-card reveal"><b>管理機能</b><span>商品・カテゴリ・会員・注文管理</span></article>
+					<article class="feature-card reveal"><b>セキュリティ</b><span>権限制御、アカウントロック、ログイン履歴</span></article>
+					<article class="feature-card reveal"><b>配送体験</b><span>配送希望日と複数お届け先対応</span></article>
+				</div>
+			</div>
+		</section>
+
+		<section id="gacha" class="section gacha-section">
+			<div class="container gacha-grid">
+				<div class="gacha-copy reveal">
+					<h2 class="ribbon-title">クーポンガチャ</h2>
+					<p>1日1回、午前7時に切り替わるクーポンガチャ。はずれ、5%OFF、10%OFF、15%OFF の結果を、注文時の割引につなげます。</p>
+					<div class="gacha-tags">
+						<span>日次制限</span><span>同時実行対策</span><span>注文時再検証</span>
+					</div>
+				</div>
+				<div class="gacha-orbit reveal" aria-label="Coupon gacha visual">
+					<img src="images/coupon_ticket_icon.png" alt="">
+					<img src="images/gacha_crystal_icon.png" alt="">
+					<img src="images/favorite_leaf_heart_icon.png" alt="">
+				</div>
+			</div>
+		</section>
+
+		<section id="ui" class="section">
+			<div class="container">
+				<h2 class="ribbon-title">UIリニューアル</h2>
+				<div class="compare reveal">
+					<figure>
+						<img src="screenshots/beforetop.png" alt="旧トップ画面" data-lightbox>
+						<figcaption>Before</figcaption>
+					</figure>
+					<div class="compare-arrow" aria-hidden="true"></div>
+					<figure>
+						<img src="screenshots/top.png" alt="新トップ画面" data-lightbox>
+						<figcaption>After</figcaption>
+					</figure>
+				</div>
+				<div class="point-row">
+					<span>森林風の背景と装飾素材</span>
+					<span>絵本のような枠・リボン・木製ボタン</span>
+					<span>長い一覧はページングで整理</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="screens" class="section gallery-section">
+			<div class="container">
+				<h2 class="ribbon-title">画面紹介</h2>
+				<div class="gallery-controls" aria-label="Screenshot filters">
+					<button type="button" class="is-active" data-filter="all">すべて</button>
+					<button type="button" data-filter="client">会員</button>
+					<button type="button" data-filter="order">注文</button>
+					<button type="button" data-filter="admin">管理</button>
+				</div>
+				<div class="gallery">
+					<figure data-group="client"><img src="screenshots/top.png" alt="トップ画面" data-lightbox><figcaption>トップ画面</figcaption></figure>
+					<figure data-group="client"><img src="screenshots/item_detail.png" alt="商品詳細" data-lightbox><figcaption>商品詳細</figcaption></figure>
+					<figure data-group="client"><img src="screenshots/favorite.png" alt="お気に入り" data-lightbox><figcaption>お気に入り</figcaption></figure>
+					<figure data-group="client"><img src="screenshots/review.png" alt="レビュー" data-lightbox><figcaption>レビュー</figcaption></figure>
+					<figure data-group="order"><img src="screenshots/cart.png" alt="買い物かご" data-lightbox><figcaption>買い物かご</figcaption></figure>
+					<figure data-group="order"><img src="screenshots/order_confirm.png" alt="注文確認" data-lightbox><figcaption>注文確認</figcaption></figure>
+					<figure data-group="order"><img src="screenshots/order_history.png" alt="注文履歴" data-lightbox><figcaption>注文履歴</figcaption></figure>
+					<figure data-group="client"><img src="screenshots/coupon_gacha.png" alt="クーポンガチャ" data-lightbox><figcaption>クーポンガチャ</figcaption></figure>
+					<figure data-group="admin"><img src="screenshots/admin_menu.png" alt="管理メニュー" data-lightbox><figcaption>管理メニュー</figcaption></figure>
+				</div>
+			</div>
+		</section>
+
+		<section id="stack" class="section parchment">
+			<div class="container">
+				<h2 class="ribbon-title">技術スタック</h2>
+				<div class="stack-cloud reveal">
+					<span>Java 17</span><span>Spring Boot</span><span>Spring MVC</span><span>Spring Data JPA</span>
+					<span>Thymeleaf</span><span>Oracle Database</span><span>HTML</span><span>CSS</span>
+					<span>JavaScript</span><span>Maven</span><span>Git</span><span>GitHub</span>
+				</div>
+				<div class="architecture reveal">
+					<span>Browser</span><i></i><span>Controller</span><i></i><span>Repository</span><i></i><span>Oracle DB</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="permissions" class="section">
+			<div class="container">
+				<h2 class="ribbon-title">ユーザー権限と機能</h2>
+				<div class="table-frame reveal">
+					<table>
+						<thead><tr><th>機能</th><th>ゲスト</th><th>一般会員</th><th>管理者</th></tr></thead>
+						<tbody>
+							<tr><td>商品閲覧・検索</td><td>○</td><td>○</td><td>○</td></tr>
+							<tr><td>会員登録・ログイン</td><td>○</td><td>○</td><td>○</td></tr>
+							<tr><td>買い物かご・注文</td><td>-</td><td>○</td><td>-</td></tr>
+							<tr><td>レビュー投稿</td><td>-</td><td>○</td><td>-</td></tr>
+							<tr><td>お気に入り・クーポン</td><td>-</td><td>○</td><td>-</td></tr>
+							<tr><td>商品・カテゴリ管理</td><td>-</td><td>-</td><td>○</td></tr>
+							<tr><td>会員・注文管理</td><td>-</td><td>-</td><td>○</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="section closing">
+			<div class="container closing-frame reveal">
+				<img src="images/plants_books_bottle.png" alt="" class="closing-deco">
+				<h2>森の小さなお店を、使えるECサイトとして形にする。</h2>
+				<p>機能追加、セキュリティ、デザイン刷新を通して、ユーザーが迷わず楽しく買い物できる体験を目指しました。</p>
+				<a class="forest-button primary" href="#top">ページ上部へ</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		Shared Shop Portfolio / Spring Boot / Oracle Database
+	</footer>
+
+	<div class="lightbox" id="lightbox" aria-hidden="true">
+		<button type="button" aria-label="閉じる">×</button>
+		<img src="" alt="">
+	</div>
+
+	<script src="shared_shop_portfolio.js"></script>
+</body>
+</html>
